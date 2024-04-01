@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Circle.cs" />
     <Compile Include="Figure.cs" />
     <Compile Include="Pnt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
