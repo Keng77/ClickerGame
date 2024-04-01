@@ -61,7 +61,7 @@ namespace FiguresClassLibrary
 
         public override int GetCost()
         {
-            return (int)(GetS()*0.05);
+            return (int)(GetS()*0.1);
         }
     }
 }

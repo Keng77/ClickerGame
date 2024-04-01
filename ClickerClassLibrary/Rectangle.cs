@@ -9,8 +9,8 @@ namespace FiguresClassLibrary
 {
     public class Rctngl : Figure
     {
-        double lenA; //private (по умолчанию)
-        double lenB;
+        private double _lenA; 
+        private double _lenB;
 
         private Rctngl(Pnt[] pnts) : base(pnts) //конструктор класса, принимающий масив точек
         {
@@ -42,18 +42,18 @@ namespace FiguresClassLibrary
         {
             Pnt upRight = new Pnt(pnts[1].x, pnts[0].y);
 
-            this.lenA = upRight.ToLen(pnts[0]);
-            this.lenB = upRight.ToLen(pnts[1]);
+            this._lenA = upRight.ToLen(pnts[0]);
+            this._lenB = upRight.ToLen(pnts[1]);
         }
 
         public override double GetP()
         {
-            return 2 * (lenA + lenB);
+            return 2 * (_lenA + _lenB);
         }
 
         public override double GetS()
         {
-            return lenA * lenB;
+            return _lenA * _lenB;
         }
 
         public override bool isContain(Pnt pnt)
@@ -67,7 +67,7 @@ namespace FiguresClassLibrary
 
         public override int GetCost()
         {
-            return (int)(GetS() * 0.05);
+            return (int)(GetS() * 0.1);
         }
 
     }
