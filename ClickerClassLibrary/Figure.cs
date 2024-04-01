@@ -26,9 +26,13 @@ namespace FiguresClassLibrary
             TTL = ttl;
         }
 
-        public abstract bool isContain(Pnt pnt);
 
-        // Метод уменьшения
+        public abstract double GetP();
+        public abstract double GetS();
+        public abstract bool isContain(Pnt pnt);
+        public abstract int GetCost();
+
+        // Метод уменьшения времени жизни
         public void DecTTL()
         {
             TTL--;
@@ -43,9 +47,7 @@ namespace FiguresClassLibrary
             }
             return false;
         }
-        public int GetCost()
-        {
-            return 5;
-        }
+
+
     }
 }
