@@ -46,6 +46,7 @@
     <Compile Include="Figure.cs" />
     <Compile Include="FigureDraw.cs" />
     <Compile Include="FigureList.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Pnt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rectangle.cs" />
