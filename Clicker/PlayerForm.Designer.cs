@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Player1TextBox = new System.Windows.Forms.TextBox();
             this.Player2TextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.OkButton = new System.Windows.Forms.Button();
+            this.CanselButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -66,40 +66,40 @@
             this.Player2TextBox.TabIndex = 2;
             this.Player2TextBox.Text = "Player2";
             // 
-            // button1
+            // OkButton
             // 
-            this.button1.Font = new System.Drawing.Font("MS PGothic", 13.8F);
-            this.button1.Location = new System.Drawing.Point(190, 261);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 41);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.OkButton.Font = new System.Drawing.Font("MS PGothic", 13.8F);
+            this.OkButton.Location = new System.Drawing.Point(190, 261);
+            this.OkButton.Name = "OkButton";
+            this.OkButton.Size = new System.Drawing.Size(113, 41);
+            this.OkButton.TabIndex = 3;
+            this.OkButton.Text = "OK";
+            this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // CanselButton
             // 
-            this.button2.Font = new System.Drawing.Font("MS PGothic", 13.8F);
-            this.button2.Location = new System.Drawing.Point(450, 261);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 41);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.CanselButton.Font = new System.Drawing.Font("MS PGothic", 13.8F);
+            this.CanselButton.Location = new System.Drawing.Point(450, 261);
+            this.CanselButton.Name = "CanselButton";
+            this.CanselButton.Size = new System.Drawing.Size(113, 41);
+            this.CanselButton.TabIndex = 4;
+            this.CanselButton.Text = "Cancel";
+            this.CanselButton.UseVisualStyleBackColor = true;
+            this.CanselButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // PlayerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CanselButton);
+            this.Controls.Add(this.OkButton);
             this.Controls.Add(this.Player2TextBox);
             this.Controls.Add(this.Player1TextBox);
             this.Controls.Add(this.label1);
             this.Name = "PlayerForm";
-            this.Text = "Form1";
+            this.Text = "PlayerForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,8 +110,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Player1TextBox;
         private System.Windows.Forms.TextBox Player2TextBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button OkButton;
+        private System.Windows.Forms.Button CanselButton;
     }
 }
 

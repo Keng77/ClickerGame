@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClickerClassLibrary
 {
-    internal class Player
+    public class Player
     {
         public string name { get; private set; }
         int score;
