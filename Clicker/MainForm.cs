@@ -5,27 +5,41 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Clicker;
-using ClickerClassLibrary;
 using FiguresClassLibrary;
 
 namespace Clicker
 {
     public partial class MainForm : Form
     {
-        const int cursorSpeed = 30;
+        const int cursorSpeed = 10; // Уменьшил скорость для более плавного движения
         private Point cursor1Position;
         private Point cursor2Position;
-        Player player1 = null; 
+        Player player1 = null;
         Player player2 = null;
         FiguresList figures = new FiguresList();
         Graphics g = null;
+        // Добавляем поля для хранения текущей скорости движения курсоров
+        private int cursor1SpeedX = 0;
+        private int cursor1SpeedY = 0;
+        private int cursor2SpeedX = 0;
+        private int cursor2SpeedY = 0;
+
+        private Timer movementTimer;
 
         public MainForm()
         {
             InitializeComponent();
             g = CreateGraphics();
             DoubleBuffered = true;
+
+            // Инициализируем и настраиваем таймер для движения курсоров
+            movementTimer = new Timer();
+            movementTimer.Interval = 1000 / 60; // примерно 60 кадров в секунду
+            movementTimer.Tick += MovementTimer_Tick;
+            movementTimer.Start();
+
             KeyDown += MainForm_KeyDown;
+            KeyUp += MainForm_KeyUp;
         }
 
         private void ShowElements()
@@ -56,45 +70,45 @@ namespace Clicker
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
-            // Перемещение первого курсора
+            // Установка скорости движения курсоров при нажатии соответствующих клавиш
             if (e.KeyCode == Keys.W)
             {
-                cursor1Position.Y -= cursorSpeed;
+                cursor1SpeedY = -cursorSpeed;
             }
             else if (e.KeyCode == Keys.S)
             {
-                cursor1Position.Y += cursorSpeed;
+                cursor1SpeedY = cursorSpeed;
             }
             else if (e.KeyCode == Keys.A)
             {
-                cursor1Position.X -= cursorSpeed;
+                cursor1SpeedX = -cursorSpeed;
             }
             else if (e.KeyCode == Keys.D)
             {
-                cursor1Position.X += cursorSpeed;
+                cursor1SpeedX = cursorSpeed;
             }
 
-            // Перемещение второго курсора
             if (e.KeyCode == Keys.Up)
             {
-                cursor2Position.Y -= cursorSpeed;
+                cursor2SpeedY = -cursorSpeed;
             }
             else if (e.KeyCode == Keys.Down)
             {
-                cursor2Position.Y += cursorSpeed;
+                cursor2SpeedY = cursorSpeed;
             }
             else if (e.KeyCode == Keys.Left)
             {
-                cursor2Position.X -= cursorSpeed;
+                cursor2SpeedX = -cursorSpeed;
             }
             else if (e.KeyCode == Keys.Right)
             {
-                cursor2Position.X += cursorSpeed;
+                cursor2SpeedX = cursorSpeed;
             }
 
-            // Обновление позиций курсоров
-            pictureBox1.Location = cursor1Position;
-            pictureBox2.Location = cursor2Position;
+            // Обновление позиций курсоров после установки скоростей
+            cursor1Position = pictureBox1.Location;
+            cursor2Position = pictureBox2.Location;
+
 
             if (ActiveForm == this) // Проверка, что активна главная форма
             {
@@ -124,6 +138,60 @@ namespace Clicker
                         figures.RemoveFigure(figure);
                     }
                 }
+            }
+        }
+
+        private void MovementTimer_Tick(object sender, EventArgs e)
+        {
+            // Обновление позиций курсоров в соответствии с их текущей скоростью
+            cursor1Position.X += cursor1SpeedX;
+            cursor1Position.Y += cursor1SpeedY;
+            cursor2Position.X += cursor2SpeedX;
+            cursor2Position.Y += cursor2SpeedY;
+
+            // Проверка, чтобы курсоры не выходили за границы экрана
+            if (cursor1Position.X < 0)
+                cursor1Position.X = 0;
+            if (cursor1Position.X > ClientSize.Width - pictureBox1.Width)
+                cursor1Position.X = ClientSize.Width - pictureBox1.Width;
+            if (cursor1Position.Y < 0)
+                cursor1Position.Y = 0;
+            if (cursor1Position.Y > ClientSize.Height - pictureBox1.Height)
+                cursor1Position.Y = ClientSize.Height - pictureBox1.Height;
+
+            if (cursor2Position.X < 0)
+                cursor2Position.X = 0;
+            if (cursor2Position.X > ClientSize.Width - pictureBox2.Width)
+                cursor2Position.X = ClientSize.Width - pictureBox2.Width;
+            if (cursor2Position.Y < 0)
+                cursor2Position.Y = 0;
+            if (cursor2Position.Y > ClientSize.Height - pictureBox2.Height)
+                cursor2Position.Y = ClientSize.Height - pictureBox2.Height;
+
+            // Обновляем позиции PictureBox
+            pictureBox1.Location = cursor1Position;
+            pictureBox2.Location = cursor2Position;
+        }
+
+        private void MainForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            // Обнуление скорости движения курсоров при отпускании клавиш
+            if (e.KeyCode == Keys.W || e.KeyCode == Keys.S)
+            {
+                cursor1SpeedY = 0;
+            }
+            else if (e.KeyCode == Keys.A || e.KeyCode == Keys.D)
+            {
+                cursor1SpeedX = 0;
+            }
+
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+            {
+                cursor2SpeedY = 0;
+            }
+            else if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
+            {
+                cursor2SpeedX = 0;
             }
         }
 

@@ -107,7 +107,7 @@ namespace FiguresClassLibrary
             Figure figure = null;
 
             int typeF = rnd.Next(0, 4);
-            //typeF = 3;
+            
             int x1 = rnd.Next(sizef, width - sizef);
             int y1 = rnd.Next(sizef, height - sizef);
             int x2 = rnd.Next(sizef, width - sizef);
@@ -117,33 +117,33 @@ namespace FiguresClassLibrary
 
             int ttl = rnd.Next(3, 10);
 
-            switch (typeF)
-            {
-                // Circle
-                case 0:
-                    int r = rnd.Next(sizef, Math.Min(width, height) - sizef);
+            //switch (typeF)
+            //{
+            //    // Circle
+            //    case 0:
+            //        int r = rnd.Next(sizef, Math.Min(width, height) - sizef);
 
-                    figure = new Circle(x1, y1, r, color, ttl);
-                    break;
+            //        figure = new Circle(x1, y1, r, color, ttl);
+            //        break;
 
-                // Rectangle
-                case 1:
-                    figure = new Rctngl(x1, y1, x2, y2, color, ttl);
-                    break;
+            //    // Rectangle
+            //    case 1:
+            //        figure = new Rctngl(x1, y1, x2, y2, color, ttl);
+            //        break;
 
-                // Square
-                case 2:
-                    figure = new Square(x1, y1, x2, y2, color, ttl);
-                    break;
+            //    // Square
+            //    case 2:
+            //        figure = new Square(x1, y1, x2, y2, color, ttl);
+            //        break;
 
-                // Triangle
-                case 3:
-                    int x3 = rnd.Next(sizef, width - sizef);
-                    int y3 = rnd.Next(sizef, height - sizef);
+            //    // Triangle
+            //    case 3:
+            //        int x3 = rnd.Next(sizef, width - sizef);
+            //        int y3 = rnd.Next(sizef, height - sizef);
 
-                    figure = new Triangle(x1, y1, x2, y2, x3, y3, color, ttl);
-                    break;
-            }
+            //        figure = new Triangle(x1, y1, x2, y2, x3, y3, color, ttl);
+            //        break;
+            //}
 
             return figure;
         }

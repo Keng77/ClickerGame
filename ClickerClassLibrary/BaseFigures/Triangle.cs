@@ -11,32 +11,11 @@ namespace FiguresClassLibrary
     {
         private double _lenA;
         private double _lenB;
-        private double _lenC;
+        private double _lenC;        
 
-        private Triangle(Pnt[] pnts) : base(pnts) //конструктор класса, принимающий масив точек
+        public Triangle(Pnt[] pnts, Color color, int ttl) : base(pnts, color, ttl) //конструктор класса, принимающий масив точек
         {
             calcLen();
-        }
-
-        private Triangle(Pnt[] pnts, Color color, int ttl) : base(pnts, color, ttl) //конструктор класса, принимающий масив точек
-        {
-            calcLen();
-        }
-
-        public Triangle(Pnt first, Pnt second, Pnt third) : this(new Pnt[3] { first, second, third }) //конструктор #1 с перегрузкой
-        {
-        }
-
-        public Triangle(Pnt first, Pnt second, Pnt third, Color color, int ttl) : this(new Pnt[3] { first, second, third }, color, ttl) //конструктор #1 с перегрузкой
-        {
-        }
-
-        public Triangle(double x1, double y1, double x2, double y2, double x3, double y3) : this(new Pnt[3] { new Pnt(x1, y1), new Pnt(x2, y2), new Pnt(x3, y3) }) //конструктор #2 с перегрузкой
-        {
-        }
-
-        public Triangle(double x1, double y1, double x2, double y2, double x3, double y3, Color color, int ttl) : this(new Pnt[3] { new Pnt(x1, y1), new Pnt(x2, y2), new Pnt(x3, y3) }, color, ttl) //конструктор #2 с перегрузкой
-        {
         }
 
         private void calcLen()
@@ -75,7 +54,7 @@ namespace FiguresClassLibrary
 
         public override int GetCost()
         {
-            return (int)(GetS() * 0.1);
+            return (int)(1000 / GetS() +1);
         }
     }
 }

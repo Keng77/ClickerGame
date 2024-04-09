@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clicker", "Clicker\Clicker.csproj", "{BD767A86-81DB-45A7-84B1-BF5BB05F108A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickerClassLibrary", "ClickerClassLibrary\ClickerClassLibrary.csproj", "{B480E7C2-B92D-4D6D-9838-1B7C8517C1A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureClassLibrary", "ClickerClassLibrary\FigureClassLibrary.csproj", "{B480E7C2-B92D-4D6D-9838-1B7C8517C1A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

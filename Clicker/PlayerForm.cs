@@ -37,6 +37,7 @@ namespace Clicker
         {
             DialogResult = DialogResult.OK;
             Close();
+            Dispose();
         }
     }
 }
