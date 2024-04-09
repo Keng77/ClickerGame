@@ -35,7 +35,7 @@ namespace FiguresClassLibrary
             double p = GetP() / 2;
             return Math.Sqrt(p * (p - _lenA) * (p - _lenB) * (p - _lenC));
         }
-        public override bool isContain(Pnt pnt)
+        public override bool IsContain(Pnt pnt)
         {
             double alpha = ((pnts[1].y - pnts[2].y) * (pnt.x - pnts[2].x) +
                             (pnts[2].x - pnts[1].x) * (pnt.y - pnts[2].y)) /
@@ -54,7 +54,7 @@ namespace FiguresClassLibrary
 
         public override int GetCost()
         {
-            return (int)(1000 / GetS() +1);
+            return (int)((1000 / GetS()) + (TTL * 5 / 4));
         }
     }
 }

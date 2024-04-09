@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace FigureClassLibrary
 {
-    public interface IFigureFactory
+    public abstract class FigureFactory
     {
-        Figure CreateFigure(Pnt[] pnts, Color color, int ttl);
+        public abstract Figure CreateFigure(Pnt[] pnts, Color color, int ttl);
     }
 }

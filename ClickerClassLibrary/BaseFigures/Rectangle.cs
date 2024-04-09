@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace FiguresClassLibrary
 {
-    public class Rctngl : Figure
+    public class Rectangle : Figure
     {
         private double _lenA; 
         private double _lenB;        
 
-        public Rctngl(Pnt[] pnts, Color color, int ttl) : base(pnts, color, ttl)
+        public Rectangle(Pnt[] pnts, Color color, int ttl) : base(pnts, color, ttl)
         {
-            calcLen();
+            CalcLen();
         }
                 
 
-        private void calcLen()
+        private void CalcLen()
         {
             Pnt upRight = new Pnt(pnts[1].x, pnts[0].y);
 
@@ -36,7 +36,7 @@ namespace FiguresClassLibrary
             return _lenA * _lenB;
         }
 
-        public override bool isContain(Pnt pnt)
+        public override bool IsContain(Pnt pnt)
         {
             bool isCnt = false;
 
@@ -47,7 +47,7 @@ namespace FiguresClassLibrary
 
         public override int GetCost()
         {
-            return (int)(1000 / GetS() +1);
+            return (int)((1000 / GetS()) + (TTL * 5 / 4));
         }
 
     }

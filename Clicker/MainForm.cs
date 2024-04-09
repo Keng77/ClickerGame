@@ -214,7 +214,7 @@ namespace Clicker
         {
             Figure figure;
 
-            figure = FiguresList.GetRndFigure(Width / 2, Height / 2, 60);
+            figure = figures.GetRndFigure(Width / 2, Height / 2, 60);
 
             figures.AddFigure(figure);
 
@@ -229,7 +229,7 @@ namespace Clicker
                 figures.RemoveFigure(f);
             }
 
-            foreach (Figure f in figures.figures)
+            foreach (Figure f in figures.Figures)
             {
                 FigureDraw.Draw(g, f);
             }

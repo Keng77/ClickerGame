@@ -11,9 +11,9 @@ namespace FiguresClassLibrary
     public abstract class Figure
     {
         public Pnt[] pnts = null;
-        public Color color { get; private set; } //свойство - цвет фигуры
-
+        public Color Color { get; private set; } //свойство - цвет фигуры
         public int TTL; //time to live
+
         public Figure(Pnt[] pnts)
         {
             this.pnts = pnts;
@@ -22,14 +22,14 @@ namespace FiguresClassLibrary
         public Figure(Pnt[] pnts, Color color, int ttl)
         {
             this.pnts = pnts;
-            this.color = color;
-            TTL = ttl;
+            this.Color = color;
+            TTL = ttl;            
         }
 
 
         public abstract double GetP();
         public abstract double GetS();
-        public abstract bool isContain(Pnt pnt);
+        public abstract bool IsContain(Pnt pnt);
         public abstract int GetCost();
 
         // Метод уменьшения времени жизни
@@ -39,7 +39,7 @@ namespace FiguresClassLibrary
         }
 
         // Проверка на существование
-        public bool isAlive()
+        public bool IsAlive()
         {
             if (TTL > 0)
             {

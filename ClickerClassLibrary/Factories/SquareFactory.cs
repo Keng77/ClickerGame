@@ -4,9 +4,9 @@ using System.Drawing;
 
 namespace FiguresClassLibrary
 {
-    public class SquareFactory : IFigureFactory
+    public class SquareFactory : FigureFactory
     {
-        public Figure CreateFigure(Pnt[] pnts, Color color, int ttl)
+        public override Figure CreateFigure(Pnt[] pnts, Color color, int ttl)
         {
             if (pnts.Length != 2)
             {

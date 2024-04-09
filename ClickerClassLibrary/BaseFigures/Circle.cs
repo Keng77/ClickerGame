@@ -34,7 +34,7 @@ namespace FiguresClassLibrary
             return Math.PI * GetR() * GetR();
         }
 
-        public override bool isContain(Pnt pnt)
+        public override bool IsContain(Pnt pnt)
         {
             bool isCnt = false;
 
@@ -50,7 +50,7 @@ namespace FiguresClassLibrary
 
         public override int GetCost()
         {
-            return (int)(1000 / GetS() + 1);
+            return (int)((1000 / GetS()) + (TTL * 5 / 4));
         }
     }
 }

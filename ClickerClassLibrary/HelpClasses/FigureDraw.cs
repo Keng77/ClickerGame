@@ -25,17 +25,17 @@ namespace FiguresClassLibrary
 
                 int r = Convert.ToInt32(circle.GetR());
 
-                x1 = x1 - r;
-                y1 = y1 - r;
+                x1 -= r;
+                y1 -= r;
 
                 g.FillEllipse(brush, x1, y1, 2 * r, 2 * r);
             }
             else
             {
-                if (figure is Rctngl)
+                if (figure is Rectangle)
                 {
 
-                    Rctngl circle = (Rctngl)figure; //Приводим тип фигура к прямоугольнику
+                    Rectangle circle = (Rectangle)figure; //Приводим тип фигура к прямоугольнику
 
                     int x1 = Convert.ToInt32(circle.pnts[0].x);
                     int y1 = Convert.ToInt32(circle.pnts[0].y);
@@ -77,7 +77,7 @@ namespace FiguresClassLibrary
         public static void Draw(Graphics g, Figure figure) 
         {                                                   
 
-            Draw(g, figure, figure.color); //переопределение метода Draw
+            Draw(g, figure, figure.Color); //переопределение метода Draw
 
         }
 

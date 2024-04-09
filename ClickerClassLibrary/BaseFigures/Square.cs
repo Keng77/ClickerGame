@@ -32,7 +32,7 @@ namespace FiguresClassLibrary
             return Math.Pow(_lenA, 2);
         }
 
-        public override bool isContain(Pnt pnt)
+        public override bool IsContain(Pnt pnt)
         {
             bool isCnt = false;
 
@@ -40,9 +40,10 @@ namespace FiguresClassLibrary
 
             return isCnt;
         }
+
         public override int GetCost()
         {
-            return (int)(1000 / GetS() +1);
+            return (int)((1000 / GetS()) + (TTL * 5 / 4));
         }
     }
 }

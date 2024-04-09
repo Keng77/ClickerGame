@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace FigureClassLibrary
 {
-    public class CircleFactory : IFigureFactory
+    public class CircleFactory : FigureFactory
     {
-        public  Figure CreateFigure(Pnt[] pnts, Color color, int ttl)
+        public override Figure CreateFigure(Pnt[] pnts, Color color, int ttl)
         {
             if (pnts.Length != 2)
             {
