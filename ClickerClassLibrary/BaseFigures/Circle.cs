@@ -16,7 +16,7 @@ namespace FiguresClassLibrary
 
         public double GetR()
         {
-            return pnts[1].x;
+            return pnts[1].X;
         }
 
         public Circle(Pnt[] pnts, Color color, int ttl) : base(pnts, color, ttl)

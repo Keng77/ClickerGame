@@ -11,35 +11,44 @@ namespace Clicker
 {
     public partial class MainForm : Form
     {
-        const int cursorSpeed = 10; // Уменьшил скорость для более плавного движения
         private Point cursor1Position;
         private Point cursor2Position;
         Player player1 = null;
         Player player2 = null;
-        FiguresList figures = new FiguresList();
-        Graphics g = null;
-        // Добавляем поля для хранения текущей скорости движения курсоров
-        private int cursor1SpeedX = 0;
-        private int cursor1SpeedY = 0;
-        private int cursor2SpeedX = 0;
-        private int cursor2SpeedY = 0;
-
-        private Timer movementTimer;
+        readonly FiguresList figures = new FiguresList();
+        readonly Graphics g = null;
+        private readonly CursorManager cursorManager;
+        private readonly Timer movementTimer;
+        private readonly Timer spawnTimer;
 
         public MainForm()
         {
             InitializeComponent();
+            InitializeCursors();
             g = CreateGraphics();
             DoubleBuffered = true;
 
             // Инициализируем и настраиваем таймер для движения курсоров
-            movementTimer = new Timer();
-            movementTimer.Interval = 1000 / 60; // примерно 60 кадров в секунду
+            movementTimer = new Timer
+            {
+                Interval = 1000 / 60 // примерно 60 кадров в секунду
+            };
             movementTimer.Tick += MovementTimer_Tick;
             movementTimer.Start();
 
+            // Инициализируем и настраиваем таймер для спавна фигур
+            spawnTimer = new Timer
+            {
+                Interval = 1000 // каждые 2 секунды
+            };
+            spawnTimer.Tick += SpawnTimer_Tick;
+            spawnTimer.Start();
+
             KeyDown += MainForm_KeyDown;
             KeyUp += MainForm_KeyUp;
+
+            // Создаем экземпляр CursorManager и передаем PictureBox'ы
+            cursorManager = new CursorManager(pictureBox1, pictureBox2);
         }
 
         private void ShowElements()
@@ -53,90 +62,59 @@ namespace Clicker
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            PlayerForm playerForm = new PlayerForm();
-            if (playerForm.ShowDialog() == DialogResult.OK)
+            using (PlayerForm playerForm = new PlayerForm())
             {
-                player1 = new Player(playerForm.GetPlayer1Name());
-                player2 = new Player(playerForm.GetPlayer2Name());
-                ScoreLabel1.Text = player1.ToString();
-                ScoreLabel2.Text = player2.ToString();
-                ShowElements();
-                timer1.Start();
-                playerForm.Close();
-                playerForm.Dispose();
+                if (playerForm.ShowDialog() == DialogResult.OK)
+                {
+                    player1 = new Player(playerForm.GetPlayer1Name());
+                    player2 = new Player(playerForm.GetPlayer2Name());
+                    ScoreLabel1.Text = player1.ToString();
+                    ScoreLabel2.Text = player2.ToString();
+                    ShowElements();
+                }
             }
         }
 
-
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
-            // Установка скорости движения курсоров при нажатии соответствующих клавиш
-            if (e.KeyCode == Keys.W)
-            {
-                cursor1SpeedY = -cursorSpeed;
-            }
-            else if (e.KeyCode == Keys.S)
-            {
-                cursor1SpeedY = cursorSpeed;
-            }
-            else if (e.KeyCode == Keys.A)
-            {
-                cursor1SpeedX = -cursorSpeed;
-            }
-            else if (e.KeyCode == Keys.D)
-            {
-                cursor1SpeedX = cursorSpeed;
-            }
-
-            if (e.KeyCode == Keys.Up)
-            {
-                cursor2SpeedY = -cursorSpeed;
-            }
-            else if (e.KeyCode == Keys.Down)
-            {
-                cursor2SpeedY = cursorSpeed;
-            }
-            else if (e.KeyCode == Keys.Left)
-            {
-                cursor2SpeedX = -cursorSpeed;
-            }
-            else if (e.KeyCode == Keys.Right)
-            {
-                cursor2SpeedX = cursorSpeed;
-            }
+            // Передаем нажатие клавиш в CursorManager
+            KeyEventArgs keyEventArgs = new KeyEventArgs(e.KeyCode);
+            cursorManager.HandleKeyDown(keyEventArgs);
 
             // Обновление позиций курсоров после установки скоростей
+            cursorManager.UpdateCursorsPositions();
             cursor1Position = pictureBox1.Location;
             cursor2Position = pictureBox2.Location;
 
+            HandleKeyPress(e.KeyCode);
+        }
 
-            if (ActiveForm == this) // Проверка, что активна главная форма
+        private void HandleKeyPress(Keys keyCode)
+        {
+            if (keyCode == Keys.E)
             {
-                if (e.KeyCode == Keys.E)
+                Pnt pnt = new Pnt(cursor1Position.X, cursor1Position.Y);
+                Figure figure = figures.FindFigure(pnt);
+                if (figure != null)
                 {
-                    Pnt pnt = new Pnt(cursor1Position.X, cursor1Position.Y);
-                    Figure figure = figures.FindFigure(pnt);
-                    if (figure != null)
-                    {
-                        // Добавление очков
-                        player1.AddScore(figure.GetCost());
-                        ScoreLabel1.Text = player1.ToString();
-                        FigureDraw.Draw(g, figure, BackColor);
-                        figures.RemoveFigure(figure);
-                    }
+                    // Добавление очков
+                    player1.AddScore(figure.GetCost());
+                    ScoreLabel1.Text = player1.ToString();
+                    FigureDraw.Draw(g, figure, BackColor);
+                    figures.RemoveFigure(figure);
                 }
-                if (e.KeyCode == Keys.NumPad2)
+            }
+            else if (keyCode == Keys.NumPad2)
+            {
+                Pnt pnt = new Pnt(cursor2Position.X, cursor2Position.Y);
+                Figure figure = figures.FindFigure(pnt);
+                if (figure != null)
                 {
-                    Pnt pnt = new Pnt(cursor2Position.X, cursor2Position.Y);
-                    Figure figure = figures.FindFigure(pnt);
-                    if (figure != null)
-                    {
-                        // Добавление очков
-                        player2.AddScore(figure.GetCost());
-                        ScoreLabel2.Text = player2.ToString();
-                        FigureDraw.Draw(g, figure, BackColor);
-                        figures.RemoveFigure(figure);
-                    }
+                    // Добавление очков
+                    player2.AddScore(figure.GetCost());
+                    ScoreLabel2.Text = player2.ToString();
+                    FigureDraw.Draw(g, figure, BackColor);
+                    figures.RemoveFigure(figure);
                 }
             }
         }
@@ -144,78 +122,27 @@ namespace Clicker
         private void MovementTimer_Tick(object sender, EventArgs e)
         {
             // Обновление позиций курсоров в соответствии с их текущей скоростью
-            cursor1Position.X += cursor1SpeedX;
-            cursor1Position.Y += cursor1SpeedY;
-            cursor2Position.X += cursor2SpeedX;
-            cursor2Position.Y += cursor2SpeedY;
+            cursorManager.UpdateCursorsPositions();
 
-            // Проверка, чтобы курсоры не выходили за границы экрана
-            if (cursor1Position.X < 0)
-                cursor1Position.X = 0;
-            if (cursor1Position.X > ClientSize.Width - pictureBox1.Width)
-                cursor1Position.X = ClientSize.Width - pictureBox1.Width;
-            if (cursor1Position.Y < 0)
-                cursor1Position.Y = 0;
-            if (cursor1Position.Y > ClientSize.Height - pictureBox1.Height)
-                cursor1Position.Y = ClientSize.Height - pictureBox1.Height;
+            // Получаем обновленные позиции курсоров
+            cursor1Position = pictureBox1.Location;
+            cursor2Position = pictureBox2.Location;
 
-            if (cursor2Position.X < 0)
-                cursor2Position.X = 0;
-            if (cursor2Position.X > ClientSize.Width - pictureBox2.Width)
-                cursor2Position.X = ClientSize.Width - pictureBox2.Width;
-            if (cursor2Position.Y < 0)
-                cursor2Position.Y = 0;
-            if (cursor2Position.Y > ClientSize.Height - pictureBox2.Height)
-                cursor2Position.Y = ClientSize.Height - pictureBox2.Height;
-
-            // Обновляем позиции PictureBox
+            // Обновляем позиции курсоров на форме
             pictureBox1.Location = cursor1Position;
             pictureBox2.Location = cursor2Position;
         }
 
         private void MainForm_KeyUp(object sender, KeyEventArgs e)
         {
-            // Обнуление скорости движения курсоров при отпускании клавиш
-            if (e.KeyCode == Keys.W || e.KeyCode == Keys.S)
-            {
-                cursor1SpeedY = 0;
-            }
-            else if (e.KeyCode == Keys.A || e.KeyCode == Keys.D)
-            {
-                cursor1SpeedX = 0;
-            }
-
-            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
-            {
-                cursor2SpeedY = 0;
-            }
-            else if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
-            {
-                cursor2SpeedX = 0;
-            }
+            // Передаем отпускание клавиш в CursorManager
+            KeyEventArgs keyEventArgs = new KeyEventArgs(e.KeyCode);
+            cursorManager.HandleKeyUp(keyEventArgs);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void SpawnTimer_Tick(object sender, EventArgs e)
         {
-            // Загрузка изображений для курсоров
-            pictureBox1.Image = Image.FromFile("D:\\Laba\\Cours 2\\Курсач ООП\\ClickerGameProject\\ClickerGame\\CursorImages\\cursor1.jpeg");
-            pictureBox2.Image = Image.FromFile("D:\\Laba\\Cours 2\\Курсач ООП\\ClickerGameProject\\ClickerGame\\CursorImages\\cursor2.jpeg");
-
-            // Установка начальных позиций курсоров
-            cursor1Position = pictureBox1.Location;
-            cursor2Position = pictureBox2.Location;
-            KeyPreview = true;
-
-            // Установка формы в полноэкранный режим
-            WindowState = FormWindowState.Maximized;
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            Figure figure;
-
-            figure = figures.GetRndFigure(Width / 2, Height / 2, 60);
-
+            Figure figure = figures.GetRndFigure(Width / 2, Height / 2, 60);
             figures.AddFigure(figure);
 
             figures.DecTTL();
@@ -231,8 +158,14 @@ namespace Clicker
 
             foreach (Figure f in figures.Figures)
             {
-                FigureDraw.Draw(g, f);
+                FigureDraw.Draw(g, f, f.Color);
             }
+        }
+
+        private void InitializeCursors()
+        {
+            pictureBox1.Image = Image.FromFile("D:\\Laba\\Cours 2\\Курсач ООП\\ClickerGameProject\\ClickerGame\\CursorImages\\cursor1.jpeg");
+            pictureBox2.Image = Image.FromFile("D:\\Laba\\Cours 2\\Курсач ООП\\ClickerGameProject\\ClickerGame\\CursorImages\\cursor2.jpeg");
         }
     }
 }

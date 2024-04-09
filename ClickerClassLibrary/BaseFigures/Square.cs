@@ -13,11 +13,11 @@ namespace FiguresClassLibrary
 
         public Square(Pnt[] pnts, Color color, int ttl) : base(pnts, color, ttl) //конструктор класса, принимающий масив точек
         {
-            calcLen();
+            CalcLen();
         }
 
 
-        private void calcLen()
+        private void CalcLen()
         {
             this._lenA = pnts[0].ToLen(pnts[1]);
         }
@@ -36,7 +36,7 @@ namespace FiguresClassLibrary
         {
             bool isCnt = false;
 
-            if (((pnts[0].x <= pnt.x) && (pnts[1].x >= pnt.x)) && ((pnts[0].y <= pnt.y) && (pnts[1].y >= pnt.y))) isCnt = true;
+            if (((pnts[0].X <= pnt.X) && (pnts[1].X >= pnt.X)) && ((pnts[0].Y <= pnt.Y) && (pnts[1].Y >= pnt.Y))) isCnt = true;
 
             return isCnt;
         }

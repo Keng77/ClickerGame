@@ -75,7 +75,7 @@
             this.OkButton.TabIndex = 3;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
-            this.OkButton.Click += new System.EventHandler(this.button1_Click);
+            this.OkButton.Click += new System.EventHandler(this.Button1_Click);
             // 
             // CanselButton
             // 
@@ -86,7 +86,7 @@
             this.CanselButton.TabIndex = 4;
             this.CanselButton.Text = "Cancel";
             this.CanselButton.UseVisualStyleBackColor = true;
-            this.CanselButton.Click += new System.EventHandler(this.button2_Click);
+            this.CanselButton.Click += new System.EventHandler(this.Button2_Click);
             // 
             // PlayerForm
             // 

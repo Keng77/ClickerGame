@@ -15,10 +15,10 @@ namespace FiguresClassLibrary
 
         public Triangle(Pnt[] pnts, Color color, int ttl) : base(pnts, color, ttl) //конструктор класса, принимающий масив точек
         {
-            calcLen();
+            CalcLen();
         }
 
-        private void calcLen()
+        private void CalcLen()
         {
             _lenA = pnts[0].ToLen(pnts[1]);
             _lenB = pnts[1].ToLen(pnts[2]);
@@ -37,15 +37,15 @@ namespace FiguresClassLibrary
         }
         public override bool IsContain(Pnt pnt)
         {
-            double alpha = ((pnts[1].y - pnts[2].y) * (pnt.x - pnts[2].x) +
-                            (pnts[2].x - pnts[1].x) * (pnt.y - pnts[2].y)) /
-                           ((pnts[1].y - pnts[2].y) * (pnts[0].x - pnts[2].x) +
-                            (pnts[2].x - pnts[1].x) * (pnts[0].y - pnts[2].y));
+            double alpha = ((pnts[1].Y - pnts[2].Y) * (pnt.X - pnts[2].X) +
+                            (pnts[2].X - pnts[1].X) * (pnt.Y - pnts[2].Y)) /
+                           ((pnts[1].Y - pnts[2].Y) * (pnts[0].X - pnts[2].X) +
+                            (pnts[2].X - pnts[1].X) * (pnts[0].Y - pnts[2].Y));
 
-            double beta = ((pnts[2].y - pnts[0].y) * (pnt.x - pnts[2].x) +
-                           (pnts[0].x - pnts[2].x) * (pnt.y - pnts[2].y)) /
-                          ((pnts[1].y - pnts[2].y) * (pnts[0].x - pnts[2].x) +
-                           (pnts[2].x - pnts[1].x) * (pnts[0].y - pnts[2].y));
+            double beta = ((pnts[2].Y - pnts[0].Y) * (pnt.X - pnts[2].X) +
+                           (pnts[0].X - pnts[2].X) * (pnt.Y - pnts[2].Y)) /
+                          ((pnts[1].Y - pnts[2].Y) * (pnts[0].X - pnts[2].X) +
+                           (pnts[2].X - pnts[1].X) * (pnts[0].Y - pnts[2].Y));
 
             double gamma = 1.0 - alpha - beta;
 

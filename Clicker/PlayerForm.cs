@@ -19,21 +19,20 @@ namespace Clicker
 
         public string GetPlayer1Name()
         {
-            return Player1TextBox.Text;
+            return Player1TextBox.Text.Trim();
         }
 
         public string GetPlayer2Name()
         {
-            return Player2TextBox.Text;
+            return Player2TextBox.Text.Trim();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
-            Close();
+            DialogResult = DialogResult.Cancel;            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             Close();

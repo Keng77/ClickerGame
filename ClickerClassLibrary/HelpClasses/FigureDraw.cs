@@ -20,8 +20,8 @@ namespace FiguresClassLibrary
             {
 
                 Circle circle = (Circle)figure; //Приводим тип фигура к окружности
-                int x1 = Convert.ToInt32(circle.GetCenter().x);
-                int y1 = Convert.ToInt32(circle.GetCenter().y);
+                int x1 = Convert.ToInt32(circle.GetCenter().X);
+                int y1 = Convert.ToInt32(circle.GetCenter().Y);
 
                 int r = Convert.ToInt32(circle.GetR());
 
@@ -37,10 +37,10 @@ namespace FiguresClassLibrary
 
                     Rectangle circle = (Rectangle)figure; //Приводим тип фигура к прямоугольнику
 
-                    int x1 = Convert.ToInt32(circle.pnts[0].x);
-                    int y1 = Convert.ToInt32(circle.pnts[0].y);
-                    int x2 = Convert.ToInt32(circle.pnts[1].x);
-                    int y2 = Convert.ToInt32(circle.pnts[1].y);
+                    int x1 = Convert.ToInt32(circle.pnts[0].X);
+                    int y1 = Convert.ToInt32(circle.pnts[0].Y);
+                    int x2 = Convert.ToInt32(circle.pnts[1].X);
+                    int y2 = Convert.ToInt32(circle.pnts[1].Y);
 
                     g.FillRectangle(brush, x1, y1, x2 - x1, y2 - y1);
                 }
@@ -50,22 +50,21 @@ namespace FiguresClassLibrary
                     {
                         Square circle = (Square)figure; //Приводим тип фигура к квадрату
 
-                        int x1 = Convert.ToInt32(circle.pnts[0].x);
-                        int y1 = Convert.ToInt32(circle.pnts[0].y);
-                        int x2 = Convert.ToInt32(circle.pnts[1].x);
-                        int y2 = Convert.ToInt32(circle.pnts[1].y);
+                        int x1 = Convert.ToInt32(circle.pnts[0].X);
+                        int y1 = Convert.ToInt32(circle.pnts[0].Y);
+                        int x2 = Convert.ToInt32(circle.pnts[1].X);
+                        int y2 = Convert.ToInt32(circle.pnts[1].Y);
 
                         g.FillRectangle(brush, x1, y1, x2 - x1, y2 - y1);
                     }
                     else
                     {
-                        if (figure is Triangle)
+                        //Приводим тип фигура к треугольнику
+                        if (figure is Triangle circle)
                         {
-                            Triangle circle = (Triangle)figure; //Приводим тип фигура к треугольнику
-
-                            PointF point0 = new PointF(Convert.ToInt32(circle.pnts[0].x), Convert.ToInt32(circle.pnts[0].y));
-                            PointF point1 = new PointF(Convert.ToInt32(circle.pnts[1].x), Convert.ToInt32(circle.pnts[1].y));
-                            PointF point2 = new PointF(Convert.ToInt32(circle.pnts[2].x), Convert.ToInt32(circle.pnts[2].y));
+                            PointF point0 = new PointF(Convert.ToInt32(circle.pnts[0].X), Convert.ToInt32(circle.pnts[0].Y));
+                            PointF point1 = new PointF(Convert.ToInt32(circle.pnts[1].X), Convert.ToInt32(circle.pnts[1].Y));
+                            PointF point2 = new PointF(Convert.ToInt32(circle.pnts[2].X), Convert.ToInt32(circle.pnts[2].Y));
                             PointF[] pointFs = { point0, point1, point2 };
 
                             g.FillPolygon(brush, pointFs);

@@ -8,23 +8,23 @@ namespace FiguresClassLibrary
 {
     public class Player
     {
-        public string name { get; private set; }
-        int score;
+        public string Name { get; private set; }
+        public int Score;
 
         public Player(string name)
         {
-            this.name = name;
-            score = 0;
+            this.Name = name;
+            Score = 0;
         }
 
         public void AddScore(int score)
         {
-            this.score += score;
+            this.Score += score;
         }
 
         public override string ToString()
         {
-            return name + ": " + score;
+            return Name + ": " + Score;
         }
     }
 }

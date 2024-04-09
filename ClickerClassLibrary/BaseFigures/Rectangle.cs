@@ -20,7 +20,7 @@ namespace FiguresClassLibrary
 
         private void CalcLen()
         {
-            Pnt upRight = new Pnt(pnts[1].x, pnts[0].y);
+            Pnt upRight = new Pnt(pnts[1].X, pnts[0].Y);
 
             this._lenA = upRight.ToLen(pnts[0]);
             this._lenB = upRight.ToLen(pnts[1]);
@@ -40,7 +40,7 @@ namespace FiguresClassLibrary
         {
             bool isCnt = false;
 
-            if (((pnts[0].x <= pnt.x) && (pnts[1].x >= pnt.x)) && ((pnts[0].y <= pnt.y) && (pnts[1].y >= pnt.y))) isCnt = true;
+            if (((pnts[0].X <= pnt.X) && (pnts[1].X >= pnt.X)) && ((pnts[0].Y <= pnt.Y) && (pnts[1].Y >= pnt.Y))) isCnt = true;
 
             return isCnt;
         }
