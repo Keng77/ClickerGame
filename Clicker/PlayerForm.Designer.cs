@@ -109,9 +109,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Player1TextBox;
-        private System.Windows.Forms.TextBox Player2TextBox;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CanselButton;
+        private System.Windows.Forms.TextBox Player2TextBox;
     }
 }
 

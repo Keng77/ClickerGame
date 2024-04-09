@@ -11,7 +11,7 @@ namespace FiguresClassLibrary
     {
         private double _lenA;
         private double _lenB;
-        private double _lenC;        
+        private double _lenC;
 
         public Triangle(Pnt[] pnts, Color color, int ttl) : base(pnts, color, ttl) //конструктор класса, принимающий масив точек
         {

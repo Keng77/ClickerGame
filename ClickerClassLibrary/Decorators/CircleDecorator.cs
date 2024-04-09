@@ -4,8 +4,8 @@ namespace FiguresClassLibrary
 {
     public class CircleDecorator : FigureDecorator
     {
-        public CircleDecorator(Figure figure, Color penaltyColor)
-            : base(figure, penaltyColor)
+        public CircleDecorator(Figure figure)
+            : base(figure)
         {
         }
 

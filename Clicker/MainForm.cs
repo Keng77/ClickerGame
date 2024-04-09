@@ -18,31 +18,16 @@ namespace Clicker
         readonly FiguresList figures = new FiguresList();
         readonly Graphics g = null;
         private readonly CursorManager cursorManager;
-        private readonly Timer movementTimer;
-        private readonly Timer spawnTimer;
+        private Timer movementTimer;
+        private Timer spawnTimer;
 
         public MainForm()
         {
             InitializeComponent();
             InitializeCursors();
+            InitializeTimers();
             g = CreateGraphics();
-            DoubleBuffered = true;
-
-            // Инициализируем и настраиваем таймер для движения курсоров
-            movementTimer = new Timer
-            {
-                Interval = 1000 / 60 // примерно 60 кадров в секунду
-            };
-            movementTimer.Tick += MovementTimer_Tick;
-            movementTimer.Start();
-
-            // Инициализируем и настраиваем таймер для спавна фигур
-            spawnTimer = new Timer
-            {
-                Interval = 1000 // каждые 2 секунды
-            };
-            spawnTimer.Tick += SpawnTimer_Tick;
-            spawnTimer.Start();
+            DoubleBuffered = true;           
 
             KeyDown += MainForm_KeyDown;
             KeyUp += MainForm_KeyUp;
@@ -55,6 +40,8 @@ namespace Clicker
         {
             ScoreLabel1.Visible = !ScoreLabel1.Visible;
             ScoreLabel2.Visible = !ScoreLabel2.Visible;
+            PenaltyLabel.Visible = !PenaltyLabel.Visible;
+            PenaltyColorBox.Visible = !PenaltyColorBox.Visible;
             pictureBox1.Visible = !pictureBox1.Visible;
             pictureBox2.Visible = !pictureBox2.Visible;
             StartButton.Visible = !StartButton.Visible;
@@ -71,6 +58,8 @@ namespace Clicker
                     ScoreLabel1.Text = player1.ToString();
                     ScoreLabel2.Text = player2.ToString();
                     ShowElements();
+                    movementTimer.Start();
+                    spawnTimer.Start();
                 }
             }
         }
@@ -158,7 +147,13 @@ namespace Clicker
 
             foreach (Figure f in figures.Figures)
             {
-                FigureDraw.Draw(g, f, f.Color);
+                FigureDraw.Draw(g, f);
+
+                if (f is FigureDecorator )
+                {
+                    PenaltyColorBox.BackColor = f.Color;
+                    break; // Добавляем break, чтобы установить цвет только для первой живой фигуры-декоратора
+                }
             }
         }
 
@@ -166,6 +161,24 @@ namespace Clicker
         {
             pictureBox1.Image = Image.FromFile("D:\\Laba\\Cours 2\\Курсач ООП\\ClickerGameProject\\ClickerGame\\CursorImages\\cursor1.jpeg");
             pictureBox2.Image = Image.FromFile("D:\\Laba\\Cours 2\\Курсач ООП\\ClickerGameProject\\ClickerGame\\CursorImages\\cursor2.jpeg");
+        }
+        
+        private void InitializeTimers()
+        {
+            // Инициализируем и настраиваем таймер для движения курсоров
+            movementTimer = new Timer
+            {
+                Interval = 1000 / 60 // примерно 60 кадров в секунду
+            };
+            movementTimer.Tick += MovementTimer_Tick;
+            
+
+            // Инициализируем и настраиваем таймер для спавна фигур
+            spawnTimer = new Timer
+            {
+                Interval = 1000 // каждые 2 секунды
+            };
+            spawnTimer.Tick += SpawnTimer_Tick;
         }
     }
 }

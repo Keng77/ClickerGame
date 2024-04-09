@@ -7,7 +7,7 @@ namespace FiguresClassLibrary
 {
     public class FiguresList
     {
-        private readonly Random rnd = new Random(DateTime.Now.Millisecond);
+        private readonly Random rnd = new Random();
         private readonly CircleFactory circleFactory;
         private readonly RectangleFactory rectangleFactory;
         private readonly SquareFactory squareFactory;
@@ -139,22 +139,23 @@ namespace FiguresClassLibrary
                 // Пример создания декоратора для круга
                 if (figure is Circle circle)
                 {
-                    figure = new CircleDecorator(circle , circle.Color);
+
+                    figure = new CircleDecorator(circle);
                 }
                 // Пример создания декоратора для прямоугольника
                 else if (figure is Rectangle rectangle)
                 {
-                    figure = new RectangleDecorator(rectangle , rectangle.Color);
+                    figure = new RectangleDecorator(rectangle);
                 }
                 // Пример создания декоратора для квадрата
                 else if (figure is Square square)
                 {
-                    figure = new SquareDecorator(square , square.Color);
+                    figure = new SquareDecorator(square);
                 }
                 // Пример создания декоратора для треугольника
                 else if (figure is Triangle triangle)
                 {
-                    figure = new TriangleDecorator(triangle , triangle.Color);
+                    figure = new TriangleDecorator(triangle);
                 }
             }
 

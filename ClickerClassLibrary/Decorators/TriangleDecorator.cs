@@ -4,8 +4,8 @@ namespace FiguresClassLibrary
 {
     public class TriangleDecorator : FigureDecorator
     {
-        public TriangleDecorator(Figure figure, Color penaltyColor)
-            : base(figure, penaltyColor)
+        public TriangleDecorator(Figure figure)
+            : base(figure)
         {
         }
 

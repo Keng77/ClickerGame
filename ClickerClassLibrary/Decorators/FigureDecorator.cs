@@ -8,11 +8,11 @@ namespace FiguresClassLibrary
         protected Figure decoratedFigure;
         protected Color penaltyColor;
 
-        public FigureDecorator(Figure figure, Color penaltyColor)
+        public FigureDecorator(Figure figure )
            : base(figure.pnts, figure.Color, figure.TTL)
         {
             this.decoratedFigure = figure;
-            this.penaltyColor = penaltyColor;
+            this.penaltyColor = figure.Color;
         }
 
         public override double GetP()
@@ -32,11 +32,7 @@ namespace FiguresClassLibrary
 
         public override int GetCost()
         {
-            if(penaltyColor == decoratedFigure.Color)
-            {
-                return (int)((1000 / GetS()) + (TTL * 5 / 4) - 25);
-            }
-            return decoratedFigure.GetCost();
+            return (int)((1000 / GetS()) + (TTL * 5 / 4) - 25);            
         }
     }
 }

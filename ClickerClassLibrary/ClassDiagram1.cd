@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FiguresClassLibrary.Circle" Collapsed="true">
+    <Position X="2" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAgAAAAAAAAAAAAAAAIAAAAAAAAMABAAAAAAA=</HashCode>
+      <FileName>BaseFigures\Circle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.Figure" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAMAAgAgAAAQ=</HashCode>
+      <FileName>BaseFigures\Figure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.Rectangle" Collapsed="true">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAqAAAAAAAEAAAAAAAAAAAAAAAAMAAAAAAAAA=</HashCode>
+      <FileName>BaseFigures\Rectangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.Square" Collapsed="true">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAiAAAAAAAEAAAAAAAAAAAAAAAAMAAAAAAAAA=</HashCode>
+      <FileName>BaseFigures\Square.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.Triangle" Collapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAqAAAAAAAUAAAAAAAAAAAAAAAAMAAAAAAAAA=</HashCode>
+      <FileName>BaseFigures\Triangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.CircleDecorator" Collapsed="true">
+    <Position X="15" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decorators\CircleDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.FigureDecorator" Collapsed="true">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAgAAAAAAIAAAAAAIAAAAAAAAAAMAAAAAAAAA=</HashCode>
+      <FileName>Decorators\FigureDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.RectangleDecorator" Collapsed="true">
+    <Position X="11.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decorators\RectangleDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.SquareDecorator" Collapsed="true">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <InheritanceLine Type="FiguresClassLibrary.FigureDecorator" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="2.441" />
+        <Point X="11.75" Y="2.816" />
+        <Point X="11.25" Y="2.816" />
+        <Point X="11.25" Y="3.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decorators\SquareDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.TriangleDecorator" Collapsed="true">
+    <Position X="13.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decorators\TriangleDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureClassLibrary.CircleFactory" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\CircleFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureClassLibrary.FigureFactory" Collapsed="true">
+    <Position X="22.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\FigureFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.RectangleFactory" Collapsed="true">
+    <Position X="20.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\RectangleFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.SquareFactory" Collapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\SquareFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.TriangleFactory" Collapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\TriangleFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.FigureDraw" Collapsed="true">
+    <Position X="23.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HelpClasses\FigureDraw.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.FiguresList" Collapsed="true">
+    <Position X="21.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAEAAEAAAAAEAAAABAAAAAAGAAAAAASAAAQAAAAAEA=</HashCode>
+      <FileName>HelpClasses\FiguresList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.Player" Collapsed="true">
+    <Position X="19.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgEAAAAAAQAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>HelpClasses\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiguresClassLibrary.Pnt" Collapsed="true">
+    <Position X="17.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAA=</HashCode>
+      <FileName>HelpClasses\Pnt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

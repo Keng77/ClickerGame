@@ -13,7 +13,7 @@ namespace FiguresClassLibrary
 
         public Player(string name)
         {
-            this.Name = name;
+            Name = name;
             Score = 0;
         }
 
