@@ -15,14 +15,15 @@ namespace Clicker
         private int cursor1SpeedY = 0;
         private int cursor2SpeedX = 0;
         private int cursor2SpeedY = 0;
-
         private readonly PictureBox pictureBox1;
         private readonly PictureBox pictureBox2;
+        private readonly Panel topPanel;
 
-        public CursorManager(PictureBox pictureBox1, PictureBox pictureBox2)
+        public CursorManager(PictureBox pictureBox1, PictureBox pictureBox2, Panel topPanel)
         {
             this.pictureBox1 = pictureBox1;
             this.pictureBox2 = pictureBox2;
+            this.topPanel = topPanel;
 
             cursor1Position = pictureBox1.Location;
             cursor2Position = pictureBox2.Location;
@@ -100,21 +101,23 @@ namespace Clicker
             cursor2Position.X += cursor2SpeedX;
             cursor2Position.Y += cursor2SpeedY;
 
+            // Ограничение позиции курсора 1
             if (cursor1Position.X < 0)
                 cursor1Position.X = 0;
             if (cursor1Position.X > pictureBox1.Parent.ClientSize.Width - pictureBox1.Width)
                 cursor1Position.X = pictureBox1.Parent.ClientSize.Width - pictureBox1.Width;
-            if (cursor1Position.Y < 0)
-                cursor1Position.Y = 0;
+            if (cursor1Position.Y < topPanel.Bottom)
+                cursor1Position.Y = topPanel.Bottom;
             if (cursor1Position.Y > pictureBox1.Parent.ClientSize.Height - pictureBox1.Height)
                 cursor1Position.Y = pictureBox1.Parent.ClientSize.Height - pictureBox1.Height;
 
+            // Ограничение позиции курсора 2
             if (cursor2Position.X < 0)
                 cursor2Position.X = 0;
             if (cursor2Position.X > pictureBox2.Parent.ClientSize.Width - pictureBox2.Width)
                 cursor2Position.X = pictureBox2.Parent.ClientSize.Width - pictureBox2.Width;
-            if (cursor2Position.Y < 0)
-                cursor2Position.Y = 0;
+            if (cursor2Position.Y < topPanel.Bottom)
+                cursor2Position.Y = topPanel.Bottom;
             if (cursor2Position.Y > pictureBox2.Parent.ClientSize.Height - pictureBox2.Height)
                 cursor2Position.Y = pictureBox2.Parent.ClientSize.Height - pictureBox2.Height;
 

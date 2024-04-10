@@ -13,10 +13,10 @@ namespace Clicker
     {
         private Point cursor1Position;
         private Point cursor2Position;
-        Player player1 = null;
-        Player player2 = null;
+        Player player1;
+        Player player2;
         readonly FiguresList figures = new FiguresList();
-        readonly Graphics g = null;
+        private readonly Graphics g;
         private readonly CursorManager cursorManager;
         private Timer movementTimer;
         private Timer spawnTimer;
@@ -33,7 +33,9 @@ namespace Clicker
             KeyUp += MainForm_KeyUp;
 
             // Создаем экземпляр CursorManager и передаем PictureBox'ы
-            cursorManager = new CursorManager(pictureBox1, pictureBox2);
+            cursorManager = new CursorManager(pictureBox1, pictureBox2, topPanel);
+            // Вызываем метод OnPaint для отрисовки фигур
+            this.Paint += MainForm_Paint;
         }
 
         private void ShowElements()
@@ -42,6 +44,7 @@ namespace Clicker
             ScoreLabel2.Visible = !ScoreLabel2.Visible;
             PenaltyLabel.Visible = !PenaltyLabel.Visible;
             PenaltyColorBox.Visible = !PenaltyColorBox.Visible;
+            topPanel.Visible = !topPanel.Visible;
             pictureBox1.Visible = !pictureBox1.Visible;
             pictureBox2.Visible = !pictureBox2.Visible;
             StartButton.Visible = !StartButton.Visible;
@@ -131,8 +134,7 @@ namespace Clicker
 
         private void SpawnTimer_Tick(object sender, EventArgs e)
         {
-            Figure figure = figures.GetRndFigure(Width / 2, Height / 2, 60);
-            figures.AddFigure(figure);
+            Figure figure = figures.GetRndFigure(Width / 2, Height / 2, 40);       
 
             figures.DecTTL();
 
@@ -145,15 +147,22 @@ namespace Clicker
                 figures.RemoveFigure(f);
             }
 
+            figures.AddFigure(figure);
+
+                if (figure is FigureDecorator)
+                {
+                    PenaltyColorBox.BackColor = figure.Color;
+                  
+                }
+            Invalidate();
+        }
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+            // Отрисовываем фигуры
             foreach (Figure f in figures.Figures)
             {
-                FigureDraw.Draw(g, f);
-
-                if (f is FigureDecorator )
-                {
-                    PenaltyColorBox.BackColor = f.Color;
-                    break; // Добавляем break, чтобы установить цвет только для первой живой фигуры-декоратора
-                }
+                FigureDraw.Draw(e.Graphics, f, f.Color);
             }
         }
 
@@ -180,5 +189,6 @@ namespace Clicker
             };
             spawnTimer.Tick += SpawnTimer_Tick;
         }
+
     }
 }
