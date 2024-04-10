@@ -96,10 +96,13 @@ namespace FiguresClassLibrary
 
             int typeF = rnd.Next(0, 4);
 
+            int minSize = 50; // Минимальный размер фигуры
+            int maxSize = Math.Min(width, height) / 2; // Максимальный размер фигуры
+
             int x1 = rnd.Next(sizef, width - sizef);
-            int y1 = rnd.Next(sizef, height - sizef);
+            int y1 = rnd.Next(sizef + 50, height - sizef + 50); // Добавление отступа 50 пикселей
             int x2 = rnd.Next(sizef, width - sizef);
-            int y2 = rnd.Next(sizef, height - sizef);
+            int y2 = rnd.Next(sizef + 50, height - sizef + 50); // Добавление отступа 50 пикселей
 
             Color color = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
 
@@ -110,24 +113,27 @@ namespace FiguresClassLibrary
             switch (typeF)
             {
                 case 0:
-                    int r = rnd.Next(sizef, Math.Min(width, height) - sizef);
+                    int r = rnd.Next(minSize, maxSize);
                     Pnt[] pntsCircle = { new Pnt(x1, y1), new Pnt(r, r) }; // Пример точек для круга
                     figure = circleFactory.CreateFigure(pntsCircle, color, ttl);
                     break;
 
                 case 1:
-                    Pnt[] pntsRectangle = { new Pnt(x1, y1), new Pnt(x2, y2) }; // Пример точек для прямоугольника
+                    int widthRect = rnd.Next(minSize, maxSize);
+                    int heightRect = rnd.Next(minSize, maxSize);
+                    Pnt[] pntsRectangle = { new Pnt(x1, y1), new Pnt(x1 + widthRect, y1 + heightRect) }; // Пример точек для прямоугольника
                     figure = rectangleFactory.CreateFigure(pntsRectangle, color, ttl);
                     break;
 
                 case 2:
-                    Pnt[] pntsSquare = { new Pnt(x1, y1), new Pnt(x2, y2) }; // Пример точек для квадрата
+                    int sideLength = rnd.Next(minSize, maxSize);
+                    Pnt[] pntsSquare = { new Pnt(x1, y1), new Pnt(x1 + sideLength, y1 + sideLength) }; // Пример точек для квадрата
                     figure = squareFactory.CreateFigure(pntsSquare, color, ttl);
                     break;
 
                 case 3:
                     int x3 = rnd.Next(sizef, width - sizef);
-                    int y3 = rnd.Next(sizef, height - sizef);
+                    int y3 = rnd.Next(sizef + 50, height - sizef + 50); // Добавление отступа 50 пикселей
                     Pnt[] pntsTriangle = { new Pnt(x1, y1), new Pnt(x2, y2), new Pnt(x3, y3) }; // Пример точек для треугольника
                     figure = triangleFactory.CreateFigure(pntsTriangle, color, ttl);
                     break;
@@ -139,7 +145,6 @@ namespace FiguresClassLibrary
                 // Пример создания декоратора для круга
                 if (figure is Circle circle)
                 {
-
                     figure = new CircleDecorator(circle);
                 }
                 // Пример создания декоратора для прямоугольника

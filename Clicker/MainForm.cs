@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Clicker;
@@ -24,7 +25,6 @@ namespace Clicker
         public MainForm()
         {
             InitializeComponent();
-            InitializeCursors();
             InitializeTimers();
             g = CreateGraphics();
             DoubleBuffered = true;           
@@ -134,7 +134,7 @@ namespace Clicker
 
         private void SpawnTimer_Tick(object sender, EventArgs e)
         {
-            Figure figure = figures.GetRndFigure(Width / 2, Height / 2, 40);       
+            Figure figure = figures.GetRndFigure(Width / 2, Height / 2, 30);       
 
             figures.DecTTL();
 
@@ -166,12 +166,6 @@ namespace Clicker
             }
         }
 
-        private void InitializeCursors()
-        {
-            pictureBox1.Image = Image.FromFile("D:\\Laba\\Cours 2\\Курсач ООП\\ClickerGameProject\\ClickerGame\\CursorImages\\cursor1.jpeg");
-            pictureBox2.Image = Image.FromFile("D:\\Laba\\Cours 2\\Курсач ООП\\ClickerGameProject\\ClickerGame\\CursorImages\\cursor2.jpeg");
-        }
-        
         private void InitializeTimers()
         {
             // Инициализируем и настраиваем таймер для движения курсоров

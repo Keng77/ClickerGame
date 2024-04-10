@@ -73,49 +73,9 @@ namespace Clicker.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cursor11 {
-            get {
-                object obj = ResourceManager.GetObject("cursor11", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cursor12 {
-            get {
-                object obj = ResourceManager.GetObject("cursor12", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap cursor2 {
             get {
                 object obj = ResourceManager.GetObject("cursor2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cursor21 {
-            get {
-                object obj = ResourceManager.GetObject("cursor21", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cursor22 {
-            get {
-                object obj = ResourceManager.GetObject("cursor22", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
