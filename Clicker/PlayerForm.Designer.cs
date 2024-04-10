@@ -48,7 +48,7 @@
             // 
             // Player1TextBox
             // 
-            this.Player1TextBox.Font = new System.Drawing.Font("MS PGothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Player1TextBox.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player1TextBox.Location = new System.Drawing.Point(90, 182);
             this.Player1TextBox.Multiline = true;
             this.Player1TextBox.Name = "Player1TextBox";
@@ -58,7 +58,7 @@
             // 
             // Player2TextBox
             // 
-            this.Player2TextBox.Font = new System.Drawing.Font("MS PGothic", 13.8F);
+            this.Player2TextBox.Font = new System.Drawing.Font("Georgia", 13.8F);
             this.Player2TextBox.Location = new System.Drawing.Point(488, 182);
             this.Player2TextBox.Multiline = true;
             this.Player2TextBox.Name = "Player2TextBox";
