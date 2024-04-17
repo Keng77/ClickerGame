@@ -99,5 +99,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\menufon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\playerformfon.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

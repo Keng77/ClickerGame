@@ -28,83 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerForm));
+            this.EnterPlayerNamesLable = new System.Windows.Forms.Label();
             this.Player1TextBox = new System.Windows.Forms.TextBox();
             this.Player2TextBox = new System.Windows.Forms.TextBox();
             this.OkButton = new System.Windows.Forms.Button();
             this.CanselButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // EnterPlayerNamesLable
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS PGothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(185, 70);
-            this.label1.MaximumSize = new System.Drawing.Size(400, 200);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(378, 28);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Enter the names of the players";
+            this.EnterPlayerNamesLable.AutoSize = true;
+            this.EnterPlayerNamesLable.BackColor = System.Drawing.Color.Transparent;
+            this.EnterPlayerNamesLable.Font = new System.Drawing.Font("Cascadia Mono", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnterPlayerNamesLable.ForeColor = System.Drawing.SystemColors.Info;
+            this.EnterPlayerNamesLable.Location = new System.Drawing.Point(254, 102);
+            this.EnterPlayerNamesLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EnterPlayerNamesLable.MaximumSize = new System.Drawing.Size(450, 225);
+            this.EnterPlayerNamesLable.Name = "EnterPlayerNamesLable";
+            this.EnterPlayerNamesLable.Size = new System.Drawing.Size(385, 37);
+            this.EnterPlayerNamesLable.TabIndex = 0;
+            this.EnterPlayerNamesLable.Text = "Введите имена игроков :";
             // 
             // Player1TextBox
             // 
             this.Player1TextBox.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player1TextBox.Location = new System.Drawing.Point(90, 182);
+            this.Player1TextBox.Location = new System.Drawing.Point(164, 205);
+            this.Player1TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Player1TextBox.Multiline = true;
             this.Player1TextBox.Name = "Player1TextBox";
-            this.Player1TextBox.Size = new System.Drawing.Size(240, 38);
+            this.Player1TextBox.Size = new System.Drawing.Size(227, 42);
             this.Player1TextBox.TabIndex = 1;
-            this.Player1TextBox.Text = "Player1";
+            this.Player1TextBox.Text = "Игрок 1";
             // 
             // Player2TextBox
             // 
             this.Player2TextBox.Font = new System.Drawing.Font("Georgia", 13.8F);
-            this.Player2TextBox.Location = new System.Drawing.Point(488, 182);
+            this.Player2TextBox.Location = new System.Drawing.Point(512, 205);
+            this.Player2TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Player2TextBox.Multiline = true;
             this.Player2TextBox.Name = "Player2TextBox";
-            this.Player2TextBox.Size = new System.Drawing.Size(240, 38);
+            this.Player2TextBox.Size = new System.Drawing.Size(188, 42);
             this.Player2TextBox.TabIndex = 2;
-            this.Player2TextBox.Text = "Player2";
+            this.Player2TextBox.Text = "Игрок 2";
+            this.Player2TextBox.TextChanged += new System.EventHandler(this.Player2TextBox_TextChanged);
             // 
             // OkButton
             // 
-            this.OkButton.Font = new System.Drawing.Font("MS PGothic", 13.8F);
-            this.OkButton.Location = new System.Drawing.Point(190, 261);
+            this.OkButton.Font = new System.Drawing.Font("Georgia", 13.8F);
+            this.OkButton.Location = new System.Drawing.Point(214, 293);
+            this.OkButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(113, 41);
+            this.OkButton.Size = new System.Drawing.Size(127, 46);
             this.OkButton.TabIndex = 3;
-            this.OkButton.Text = "OK";
+            this.OkButton.Text = "ОК";
             this.OkButton.UseVisualStyleBackColor = true;
-            this.OkButton.Click += new System.EventHandler(this.Button1_Click);
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // CanselButton
             // 
-            this.CanselButton.Font = new System.Drawing.Font("MS PGothic", 13.8F);
-            this.CanselButton.Location = new System.Drawing.Point(450, 261);
+            this.CanselButton.Font = new System.Drawing.Font("Georgia", 13.8F);
+            this.CanselButton.Location = new System.Drawing.Point(512, 293);
+            this.CanselButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CanselButton.Name = "CanselButton";
-            this.CanselButton.Size = new System.Drawing.Size(113, 41);
+            this.CanselButton.Size = new System.Drawing.Size(127, 46);
             this.CanselButton.TabIndex = 4;
-            this.CanselButton.Text = "Cancel";
+            this.CanselButton.Text = "Выход";
             this.CanselButton.UseVisualStyleBackColor = true;
-            this.CanselButton.Click += new System.EventHandler(this.Button2_Click);
+            this.CanselButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // PlayerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::Clicker.Properties.Resources.playerformfon;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(900, 506);
             this.Controls.Add(this.CanselButton);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.Player2TextBox);
             this.Controls.Add(this.Player1TextBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.EnterPlayerNamesLable);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PlayerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PlayerForm";
+            this.Text = "Настройки";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,7 +127,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label EnterPlayerNamesLable;
         private System.Windows.Forms.TextBox Player1TextBox;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CanselButton;

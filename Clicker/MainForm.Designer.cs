@@ -37,6 +37,8 @@
             this.PenaltyLabel = new System.Windows.Forms.Label();
             this.PenaltyColorBox = new System.Windows.Forms.PictureBox();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.GameNameLabel = new System.Windows.Forms.Label();
+            this.ExitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PenaltyColorBox)).BeginInit();
@@ -67,12 +69,14 @@
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(748, 339);
+            this.StartButton.BackColor = System.Drawing.Color.Transparent;
+            this.StartButton.Font = new System.Drawing.Font("MV Boli", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartButton.Location = new System.Drawing.Point(786, 260);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(271, 95);
             this.StartButton.TabIndex = 2;
-            this.StartButton.Text = "Start Game";
-            this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Text = "Начать игру";
+            this.StartButton.UseVisualStyleBackColor = false;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // pictureBox2
@@ -134,22 +138,50 @@
             this.topPanel.TabIndex = 7;
             this.topPanel.Visible = false;
             // 
+            // GameNameLabel
+            // 
+            this.GameNameLabel.AutoSize = true;
+            this.GameNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.GameNameLabel.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GameNameLabel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GameNameLabel.Location = new System.Drawing.Point(749, 72);
+            this.GameNameLabel.Name = "GameNameLabel";
+            this.GameNameLabel.Size = new System.Drawing.Size(362, 75);
+            this.GameNameLabel.TabIndex = 8;
+            this.GameNameLabel.Text = "FigureClicker";
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.Font = new System.Drawing.Font("MV Boli", 18F);
+            this.ExitButton.Location = new System.Drawing.Point(786, 392);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(271, 95);
+            this.ExitButton.TabIndex = 9;
+            this.ExitButton.Text = "Выход";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::Clicker.Properties.Resources.menufon;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1837, 856);
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.GameNameLabel);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.topPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "MainForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "MainForm";
+            this.Text = "FigureClicker";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -157,6 +189,7 @@
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -169,5 +202,7 @@
         private System.Windows.Forms.Label PenaltyLabel;
         private System.Windows.Forms.PictureBox PenaltyColorBox;
         private System.Windows.Forms.Panel topPanel;
+        private System.Windows.Forms.Label GameNameLabel;
+        private System.Windows.Forms.Button ExitButton;
     }
 }

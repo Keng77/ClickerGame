@@ -40,6 +40,8 @@ namespace Clicker
 
         private void ShowElements()
         {
+            Cursor.Hide();
+            GameNameLabel.Visible = !GameNameLabel.Visible;
             ScoreLabel1.Visible = !ScoreLabel1.Visible;
             ScoreLabel2.Visible = !ScoreLabel2.Visible;
             PenaltyLabel.Visible = !PenaltyLabel.Visible;
@@ -48,6 +50,7 @@ namespace Clicker
             pictureBox1.Visible = !pictureBox1.Visible;
             pictureBox2.Visible = !pictureBox2.Visible;
             StartButton.Visible = !StartButton.Visible;
+            ExitButton.Visible = !ExitButton.Visible;
             BackgroundImage = Image.FromFile("gamefon.jpg");
             BackgroundImageLayout = ImageLayout.Stretch;
         }
@@ -68,9 +71,17 @@ namespace Clicker
                 }
             }
         }
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Escape) 
+            {
+                this.Close();
+            }
             // Передаем нажатие клавиш в CursorManager
             KeyEventArgs keyEventArgs = new KeyEventArgs(e.KeyCode);
             cursorManager.HandleKeyDown(keyEventArgs);
@@ -138,7 +149,7 @@ namespace Clicker
 
         private void SpawnTimer_Tick(object sender, EventArgs e)
         {
-            Figure figure = figures.GetRndFigure(Width / 2, Height / 2, 30);       
+            Figure figure = figures.GetRndFigure(Width, Height);       
 
             figures.DecTTL();
 
@@ -176,7 +187,7 @@ namespace Clicker
             // Инициализируем и настраиваем таймер для движения курсоров
             movementTimer = new Timer
             {
-                Interval = 1000 / 60 // примерно 60 кадров в секунду
+                Interval = 1000/60 // примерно 60 кадров в секунду
             };
             movementTimer.Tick += MovementTimer_Tick;
             
@@ -184,7 +195,7 @@ namespace Clicker
             // Инициализируем и настраиваем таймер для спавна фигур
             spawnTimer = new Timer
             {
-                Interval = 1000 // каждые 2 секунды
+                Interval = 1000 // каждую секунду
             };
             spawnTimer.Tick += SpawnTimer_Tick;
         }

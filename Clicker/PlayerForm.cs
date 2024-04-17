@@ -27,15 +27,20 @@ namespace Clicker
             return Player2TextBox.Text.Trim();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;            
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void Player2TextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
