@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Clicker;
@@ -103,9 +104,21 @@ namespace Clicker
                 if (figure != null)
                 {
                     // Добавление очков
-                    player1.AddScore(figure.GetCost());
+                    if(figure is FigureDecorator && PenaltyColorBox.BackColor == figure.Color)
+                    {
+                        player1.AddScore(figure.GetCost());
+                    }
+                    else if (figure is FigureDecorator DecoratedFigure)
+                    {
+                        player1.AddScore(DecoratedFigure.GetBaseCost());
+                    }
+                    else
+                    {
+                        player1.AddScore(figure.GetCost());
+                    }
                     ScoreLabel1.Text = player1.ToString();
-                    FigureDraw.Draw(g, figure, BackColor);
+                    if(player1.Score >= 150) Playerwin(player1);
+                    FigureDraw.Draw(g, figure, TransparencyKey);
                     BackgroundImage = Image.FromFile("gamefon.jpg");
                     figures.RemoveFigure(figure);
                 }
@@ -117,9 +130,21 @@ namespace Clicker
                 if (figure != null)
                 {
                     // Добавление очков
-                    player2.AddScore(figure.GetCost());
+                    if (figure is FigureDecorator && PenaltyColorBox.BackColor == figure.Color)
+                    {
+                        player2.AddScore(figure.GetCost());
+                    }
+                    else if (figure is FigureDecorator DecoratedFigure)
+                    {
+                        player2.AddScore(DecoratedFigure.GetBaseCost());
+                    }
+                    else
+                    {
+                        player2.AddScore(figure.GetCost());
+                    }
                     ScoreLabel2.Text = player2.ToString();
-                    FigureDraw.Draw(g, figure, BackColor);
+                    if (player2.Score >= 150) Playerwin(player2);
+                    FigureDraw.Draw(g, figure, TransparencyKey);
                     BackgroundImage = Image.FromFile("gamefon.jpg");
                     figures.RemoveFigure(figure);
                 }
@@ -147,9 +172,17 @@ namespace Clicker
             cursorManager.HandleKeyUp(keyEventArgs);
         }
 
+        private void Playerwin(Player player)
+        {
+            Cursor.Show();
+            spawnTimer.Stop();
+            MessageBox.Show($@"Игрок ""{player.Name}"" набрал {player.Score} очков. Вы победили!", "Победа!");
+            Close();
+        }
+
         private void SpawnTimer_Tick(object sender, EventArgs e)
         {
-            Figure figure = figures.GetRndFigure(Width, Height);       
+            Figure figure = figures.GetRndFigure(Width, Height);
 
             figures.DecTTL();
 
@@ -158,7 +191,7 @@ namespace Clicker
             while (notAliveFigures.Count > 0)
             {
                 Figure f = notAliveFigures.Dequeue();
-                FigureDraw.Draw(g, f, BackColor);
+                FigureDraw.Draw(g, f, TransparencyKey);
                 BackgroundImage = Image.FromFile("gamefon.jpg");
                 figures.RemoveFigure(f);
             }
@@ -187,7 +220,7 @@ namespace Clicker
             // Инициализируем и настраиваем таймер для движения курсоров
             movementTimer = new Timer
             {
-                Interval = 1000/60 // примерно 60 кадров в секунду
+                Interval = 1000 / 60 // примерно 60 кадров в секунду
             };
             movementTimer.Tick += MovementTimer_Tick;
             

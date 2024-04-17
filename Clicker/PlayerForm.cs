@@ -29,13 +29,12 @@ namespace Clicker
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;            
+            DialogResult = DialogResult.Cancel;        
         }
 
         private void OkButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            Close();
         }
 
         private void Player2TextBox_TextChanged(object sender, EventArgs e)

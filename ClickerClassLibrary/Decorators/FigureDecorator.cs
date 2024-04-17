@@ -34,5 +34,9 @@ namespace FiguresClassLibrary
         {
             return (int)((1000 / GetS()) + (TTL * 5 / 4) - 25);            
         }
+        public int GetBaseCost()
+        {
+            return decoratedFigure.GetCost();
+        }
     }
 }

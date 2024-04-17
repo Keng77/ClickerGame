@@ -63,10 +63,9 @@ namespace FiguresClassLibrary
         public Figure FindFigure(Pnt pnt)
         {
             Figure f = null;
-
             bool finded = false;
 
-            for (int i = 0; i < Figures.Count && !finded; i++)
+            for (int i = Figures.Count - 1; i >= 0 && !finded; i--)
             {
                 if (Figures[i].IsContain(pnt))
                 {
@@ -99,7 +98,7 @@ namespace FiguresClassLibrary
             int minSize = 50; // Минимальный размер фигуры
             int maxSize = Math.Min(width, height) / 4; // Максимальный размер фигуры
 
-            int offset = 100; // Отступ в пикселях
+            int offset = 150; // Отступ в пикселях
 
             int x1 = rnd.Next(minSize + offset, width - minSize - offset);
             int y1 = rnd.Next(minSize + offset, height - minSize - offset);

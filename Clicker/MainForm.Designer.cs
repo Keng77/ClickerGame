@@ -93,6 +93,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(360, 650);
@@ -125,14 +126,14 @@
             // 
             // topPanel
             // 
-            this.topPanel.BackColor = System.Drawing.Color.Silver;
-            this.topPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.topPanel.BackColor = System.Drawing.Color.MediumTurquoise;
             this.topPanel.Controls.Add(this.PenaltyColorBox);
             this.topPanel.Controls.Add(this.ScoreLabel1);
             this.topPanel.Controls.Add(this.PenaltyLabel);
             this.topPanel.Controls.Add(this.ScoreLabel2);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
+            this.topPanel.Margin = new System.Windows.Forms.Padding(0);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(1837, 45);
             this.topPanel.TabIndex = 7;

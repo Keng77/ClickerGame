@@ -53,22 +53,23 @@
             // Player1TextBox
             // 
             this.Player1TextBox.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player1TextBox.Location = new System.Drawing.Point(164, 205);
-            this.Player1TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Player1TextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Player1TextBox.Location = new System.Drawing.Point(204, 205);
+            this.Player1TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.Player1TextBox.Multiline = true;
             this.Player1TextBox.Name = "Player1TextBox";
-            this.Player1TextBox.Size = new System.Drawing.Size(227, 42);
+            this.Player1TextBox.Size = new System.Drawing.Size(165, 42);
             this.Player1TextBox.TabIndex = 1;
             this.Player1TextBox.Text = "Игрок 1";
             // 
             // Player2TextBox
             // 
             this.Player2TextBox.Font = new System.Drawing.Font("Georgia", 13.8F);
-            this.Player2TextBox.Location = new System.Drawing.Point(512, 205);
-            this.Player2TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Player2TextBox.Location = new System.Drawing.Point(485, 205);
+            this.Player2TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.Player2TextBox.Multiline = true;
             this.Player2TextBox.Name = "Player2TextBox";
-            this.Player2TextBox.Size = new System.Drawing.Size(188, 42);
+            this.Player2TextBox.Size = new System.Drawing.Size(165, 42);
             this.Player2TextBox.TabIndex = 2;
             this.Player2TextBox.Text = "Игрок 2";
             this.Player2TextBox.TextChanged += new System.EventHandler(this.Player2TextBox_TextChanged);
@@ -76,8 +77,8 @@
             // OkButton
             // 
             this.OkButton.Font = new System.Drawing.Font("Georgia", 13.8F);
-            this.OkButton.Location = new System.Drawing.Point(214, 293);
-            this.OkButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.OkButton.Location = new System.Drawing.Point(233, 268);
+            this.OkButton.Margin = new System.Windows.Forms.Padding(4);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(127, 46);
             this.OkButton.TabIndex = 3;
@@ -88,8 +89,8 @@
             // CanselButton
             // 
             this.CanselButton.Font = new System.Drawing.Font("Georgia", 13.8F);
-            this.CanselButton.Location = new System.Drawing.Point(512, 293);
-            this.CanselButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CanselButton.Location = new System.Drawing.Point(495, 268);
+            this.CanselButton.Margin = new System.Windows.Forms.Padding(4);
             this.CanselButton.Name = "CanselButton";
             this.CanselButton.Size = new System.Drawing.Size(127, 46);
             this.CanselButton.TabIndex = 4;
@@ -104,7 +105,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::Clicker.Properties.Resources.playerformfon;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(900, 506);
             this.Controls.Add(this.CanselButton);
             this.Controls.Add(this.OkButton);
@@ -114,10 +115,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PlayerForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Настройки";
             this.ResumeLayout(false);
