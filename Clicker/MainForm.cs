@@ -48,6 +48,8 @@ namespace Clicker
             pictureBox1.Visible = !pictureBox1.Visible;
             pictureBox2.Visible = !pictureBox2.Visible;
             StartButton.Visible = !StartButton.Visible;
+            BackgroundImage = Image.FromFile("gamefon.jpg");
+            BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void StartButton_Click(object sender, EventArgs e)
@@ -93,6 +95,7 @@ namespace Clicker
                     player1.AddScore(figure.GetCost());
                     ScoreLabel1.Text = player1.ToString();
                     FigureDraw.Draw(g, figure, BackColor);
+                    BackgroundImage = Image.FromFile("gamefon.jpg");
                     figures.RemoveFigure(figure);
                 }
             }
@@ -106,6 +109,7 @@ namespace Clicker
                     player2.AddScore(figure.GetCost());
                     ScoreLabel2.Text = player2.ToString();
                     FigureDraw.Draw(g, figure, BackColor);
+                    BackgroundImage = Image.FromFile("gamefon.jpg");
                     figures.RemoveFigure(figure);
                 }
             }
@@ -144,6 +148,7 @@ namespace Clicker
             {
                 Figure f = notAliveFigures.Dequeue();
                 FigureDraw.Draw(g, f, BackColor);
+                BackgroundImage = Image.FromFile("gamefon.jpg");
                 figures.RemoveFigure(f);
             }
 
