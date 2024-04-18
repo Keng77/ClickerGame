@@ -126,7 +126,7 @@
             // 
             // topPanel
             // 
-            this.topPanel.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.topPanel.BackColor = System.Drawing.Color.SkyBlue;
             this.topPanel.Controls.Add(this.PenaltyColorBox);
             this.topPanel.Controls.Add(this.ScoreLabel1);
             this.topPanel.Controls.Add(this.PenaltyLabel);

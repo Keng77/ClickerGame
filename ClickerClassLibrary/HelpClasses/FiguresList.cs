@@ -89,6 +89,13 @@ namespace FiguresClassLibrary
             return dFigures;
         }
 
+        // Функция для расчета площади треугольника
+        double CalculateTriangleArea(Pnt[] points)
+        {
+            double area = 0.5 * Math.Abs((points[1].X - points[0].X) * (points[2].Y - points[0].Y) - (points[2].X - points[0].X) * (points[1].Y - points[0].Y));
+            return area;
+        }
+
         public Figure GetRndFigure(int width, int height)
         {
             Figure figure = null;
@@ -133,10 +140,23 @@ namespace FiguresClassLibrary
                     break;
 
                 case 3:
-                    int x3 = rnd.Next(minSize, width - minSize);
-                    int y3 = rnd.Next(minSize + offset, height - minSize - offset);
-                    Pnt[] trianglePoints = { new Pnt(x1, y1), new Pnt(x2, y2), new Pnt(x3, y3) }; // Пример точек для треугольника
-                    figure = triangleFactory.CreateFigure(trianglePoints, color, ttl);
+                    double minimumArea = 30.0;
+                    bool isTriangleValid = false;
+                    while (!isTriangleValid)
+                    {
+                        int x3 = rnd.Next(minSize, width - minSize);
+                        int y3 = rnd.Next(minSize + offset, height - minSize - offset);
+                        Pnt[] trianglePoints = { new Pnt(x1, y1), new Pnt(x2, y2), new Pnt(x3, y3) };
+
+                        // Рассчитываем площадь треугольника
+                        double area = CalculateTriangleArea(trianglePoints);
+
+                        if (area >= minimumArea)
+                        {
+                            isTriangleValid = true;
+                            figure = triangleFactory.CreateFigure(trianglePoints, color, ttl);
+                        }
+                    }
                     break;
             }
 
