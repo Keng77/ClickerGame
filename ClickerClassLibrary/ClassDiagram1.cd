@@ -35,47 +35,11 @@
       <FileName>BaseFigures\Triangle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FiguresClassLibrary.CircleDecorator" Collapsed="true">
-    <Position X="15" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Decorators\CircleDecorator.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="FiguresClassLibrary.FigureDecorator" Collapsed="true">
     <Position X="11" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAgAAAAAAIAAAAAAIAAAAAAAAAAMAAAAAAAAA=</HashCode>
+      <HashCode>AQAAAAAAgAAAAAAIAAAAAAIAAAAQAAAAAMAAAAAAAAA=</HashCode>
       <FileName>Decorators\FigureDecorator.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="FiguresClassLibrary.RectangleDecorator" Collapsed="true">
-    <Position X="11.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Decorators\RectangleDecorator.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="FiguresClassLibrary.SquareDecorator" Collapsed="true">
-    <Position X="9.75" Y="3.25" Width="1.5" />
-    <InheritanceLine Type="FiguresClassLibrary.FigureDecorator" FixedToPoint="true">
-      <Path>
-        <Point X="11.75" Y="2.441" />
-        <Point X="11.75" Y="2.816" />
-        <Point X="11.25" Y="2.816" />
-        <Point X="11.25" Y="3.25" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Decorators\SquareDecorator.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="FiguresClassLibrary.TriangleDecorator" Collapsed="true">
-    <Position X="13.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Decorators\TriangleDecorator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FigureClassLibrary.CircleFactory" Collapsed="true">
@@ -123,7 +87,7 @@
   <Class Name="FiguresClassLibrary.FiguresList" Collapsed="true">
     <Position X="21.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAEAAEAAAAAEAAAABAAAAAAGAAAAAASAAAQAAAAAEA=</HashCode>
+      <HashCode>IAAEAAEAAAAAEAAAABAAAAAQGAAAAAASAAAQAAAAAEA=</HashCode>
       <FileName>HelpClasses\FiguresList.cs</FileName>
     </TypeIdentifier>
   </Class>

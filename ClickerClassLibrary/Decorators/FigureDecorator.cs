@@ -2,8 +2,8 @@
 
 namespace FiguresClassLibrary
 {
-    // Абстрактный декоратор фигур
-    public abstract class FigureDecorator : Figure
+    // Декоратор фигур
+    public class FigureDecorator : Figure
     {
         public Figure decoratedFigure;
         protected Color penaltyColor;

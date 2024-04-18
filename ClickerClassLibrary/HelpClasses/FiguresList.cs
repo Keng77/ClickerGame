@@ -163,26 +163,7 @@ namespace FiguresClassLibrary
             // Декорирование фигуры, если isDecorated равно true
             if (isDecorated)
             {
-                // Пример создания декоратора для круга
-                if (figure is Circle circle)
-                {
-                    figure = new CircleDecorator(circle);
-                }
-                // Пример создания декоратора для прямоугольника
-                else if (figure is Rectangle rectangle)
-                {
-                    figure = new RectangleDecorator(rectangle);
-                }
-                // Пример создания декоратора для квадрата
-                else if (figure is Square square)
-                {
-                    figure = new SquareDecorator(square);
-                }
-                // Пример создания декоратора для треугольника
-                else if (figure is Triangle triangle)
-                {
-                    figure = new TriangleDecorator(triangle);
-                }
+                figure = new FigureDecorator(figure);               
             }
 
             return figure;

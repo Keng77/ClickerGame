@@ -43,11 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseFigures\Circle.cs" />
-    <Compile Include="Decorators\CircleDecorator.cs" />
     <Compile Include="Decorators\FigureDecorator.cs" />
-    <Compile Include="Decorators\RectangleDecorator.cs" />
-    <Compile Include="Decorators\SquareDecorator.cs" />
-    <Compile Include="Decorators\TriangleDecorator.cs" />
     <Compile Include="Factories\CircleFactory.cs" />
     <Compile Include="Factories\RectangleFactory.cs" />
     <Compile Include="BaseFigures\Figure.cs" />
