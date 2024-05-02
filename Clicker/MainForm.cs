@@ -220,7 +220,7 @@ namespace Clicker
             // Инициализируем и настраиваем таймер для движения курсоров
             movementTimer = new Timer
             {
-                Interval = 1000 / 60 // примерно 60 кадров в секунду
+                Interval = 1000 / 120 // примерно 60 кадров в секунду
             };
             movementTimer.Tick += MovementTimer_Tick;
             

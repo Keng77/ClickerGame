@@ -36,42 +36,42 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.FigureDecorator" Collapsed="true">
-    <Position X="11" Y="1.75" Width="1.5" />
+    <Position X="7.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAgAAAAAAIAAAAAAIAAAAQAAAAAMAAAAAAAAA=</HashCode>
       <FileName>Decorators\FigureDecorator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FigureClassLibrary.CircleFactory" Collapsed="true">
-    <Position X="23" Y="2.5" Width="1.5" />
+    <Position X="22.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\CircleFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FigureClassLibrary.FigureFactory" Collapsed="true">
-    <Position X="22.5" Y="1" Width="1.5" />
+    <Position X="21.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\FigureFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.RectangleFactory" Collapsed="true">
-    <Position X="20.25" Y="2.5" Width="1.5" />
+    <Position X="20.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\RectangleFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.SquareFactory" Collapsed="true">
-    <Position X="17.75" Y="2.5" Width="1.5" />
+    <Position X="19" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\SquareFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.TriangleFactory" Collapsed="true">
-    <Position X="25.75" Y="2.5" Width="1.5" />
+    <Position X="24.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\TriangleFactory.cs</FileName>

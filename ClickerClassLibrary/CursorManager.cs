@@ -8,7 +8,7 @@ namespace Clicker
 {
     public class CursorManager
     {
-        private const int cursorSpeed = 15;
+        private const int cursorSpeed = 12;
         private Point cursor1Position;
         private Point cursor2Position;
         private int cursor1SpeedX = 0;
