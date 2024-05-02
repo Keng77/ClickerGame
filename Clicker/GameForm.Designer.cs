@@ -1,6 +1,6 @@
 ﻿namespace Clicker
 {
-    partial class MainForm
+    partial class GameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.ScoreLabel1 = new System.Windows.Forms.Label();
             this.ScoreLabel2 = new System.Windows.Forms.Label();
             this.StartButton = new System.Windows.Forms.Button();
@@ -135,7 +135,7 @@
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Margin = new System.Windows.Forms.Padding(0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(1837, 45);
+            this.topPanel.Size = new System.Drawing.Size(1920, 45);
             this.topPanel.TabIndex = 7;
             this.topPanel.Visible = false;
             // 
@@ -162,14 +162,14 @@
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // MainForm
+            // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Clicker.Properties.Resources.menufon;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1837, 856);
+            this.ClientSize = new System.Drawing.Size(1920, 1051);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.GameNameLabel);
             this.Controls.Add(this.pictureBox2);
@@ -180,7 +180,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Name = "MainForm";
+            this.Name = "GameForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "FigureClicker";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

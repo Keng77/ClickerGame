@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseFigures\Circle.cs" />
-    <Compile Include="CursorManager.cs" />
+    <Compile Include="HelpClasses\CursorManager.cs" />
     <Compile Include="Decorators\FigureDecorator.cs" />
     <Compile Include="Factories\CircleFactory.cs" />
     <Compile Include="Factories\RectangleFactory.cs" />

@@ -11,7 +11,7 @@ using FiguresClassLibrary;
 
 namespace Clicker
 {
-    public partial class MainForm : Form
+    public partial class GameForm : Form
     {
         private Point cursor1Position;
         private Point cursor2Position;
@@ -23,7 +23,7 @@ namespace Clicker
         private Timer movementTimer;
         private Timer spawnTimer;
 
-        public MainForm()
+        public GameForm()
         {
             InitializeComponent();
             InitializeTimers();
@@ -192,7 +192,6 @@ namespace Clicker
             {
                 Figure f = notAliveFigures.Dequeue();
                 FigureDraw.Draw(g, f, TransparencyKey);
-                BackgroundImage = Image.FromFile("gamefon.jpg");
                 figures.RemoveFigure(f);
             }
 
@@ -220,7 +219,7 @@ namespace Clicker
             // Инициализируем и настраиваем таймер для движения курсоров
             movementTimer = new Timer
             {
-                Interval = 1000 / 120 // примерно 60 кадров в секунду
+                Interval = 1000 / 120 // примерно 120 кадров в секунду
             };
             movementTimer.Tick += MovementTimer_Tick;
             
@@ -233,5 +232,6 @@ namespace Clicker
             spawnTimer.Tick += SpawnTimer_Tick;
         }
 
+ 
     }
 }
