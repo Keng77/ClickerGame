@@ -32,6 +32,12 @@ namespace Clicker
         }
 
         public bool KeyPreview { get; set; }
+        public int Cursor1SpeedY { get; set; }
+        public int Cursor1SpeedX { get; set; }
+        public Point Cursor1Position { get; set; }
+        public int Cursor2SpeedX { get; set; }
+        public int Cursor2SpeedY { get; set; }
+        public Point Cursor2Position { get; set; }
 
         public void HandleKeyDown(KeyEventArgs e)
         {

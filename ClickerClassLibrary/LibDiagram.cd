@@ -43,66 +43,73 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FigureClassLibrary.CircleFactory" Collapsed="true">
-    <Position X="22.75" Y="2.5" Width="1.5" />
+    <Position X="6" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\CircleFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FigureClassLibrary.FigureFactory" Collapsed="true">
-    <Position X="21.75" Y="1.25" Width="1.5" />
+    <Position X="4.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\FigureFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.RectangleFactory" Collapsed="true">
-    <Position X="20.75" Y="2.5" Width="1.5" />
+    <Position X="4" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\RectangleFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.SquareFactory" Collapsed="true">
-    <Position X="19" Y="2.5" Width="1.5" />
+    <Position X="1.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\SquareFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.TriangleFactory" Collapsed="true">
-    <Position X="24.5" Y="2.5" Width="1.5" />
+    <Position X="7.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\TriangleFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.FigureDraw" Collapsed="true">
-    <Position X="23.5" Y="4.25" Width="1.5" />
+    <Position X="10" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAACAgAAAAAAAAAAAAAAABAAAAAAQAAAAAA=</HashCode>
       <FileName>HelpClasses\FigureDraw.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.FiguresList" Collapsed="true">
-    <Position X="21.75" Y="4.25" Width="1.5" />
+    <Position X="10" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAEAAEAAAAAEAAAABAAAAAQGAAAAAASAAAQAAAAAEA=</HashCode>
       <FileName>HelpClasses\FiguresList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.Player" Collapsed="true">
-    <Position X="19.75" Y="4.25" Width="1.5" />
+    <Position X="10" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgEAAAAAAQAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>HelpClasses\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FiguresClassLibrary.Pnt" Collapsed="true">
-    <Position X="17.5" Y="4.25" Width="1.5" />
+    <Position X="10" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAA=</HashCode>
       <FileName>HelpClasses\Pnt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clicker.CursorManager" Collapsed="true">
+    <Position X="10" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAEAAAADAACAAgAAAAxQACAAAEAAAABAQAA=</HashCode>
+      <FileName>HelpClasses\CursorManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
