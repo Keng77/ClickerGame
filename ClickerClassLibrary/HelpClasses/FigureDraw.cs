@@ -5,6 +5,12 @@ namespace FiguresClassLibrary
 {
     public static class FigureDraw
     {
+        /// <summary>
+        /// Рисует фигуру на графическом объекте с заданным цветом.
+        /// </summary>
+        /// <param name="g">Графический объект, на котором будет отображаться фигура.</param>
+        /// <param name="figure">Фигура, которую нужно нарисовать.</param>
+        /// <param name="color">Цвет, которым будет заполнена фигура.</param>
         public static void Draw(Graphics g, Figure figure, Color color)
         {
             SolidBrush brush = new SolidBrush(color);
@@ -31,11 +37,22 @@ namespace FiguresClassLibrary
             }
         }
 
+        /// <summary>
+        /// Рисует фигуру на графическом объекте с использованием цвета фигуры.
+        /// </summary>
+        /// <param name="g">Графический объект, на котором будет отображаться фигура.</param>
+        /// <param name="figure">Фигура, которую нужно нарисовать.</param>
         public static void Draw(Graphics g, Figure figure)
         {
             Draw(g, figure, figure.Color);
         }
 
+        /// <summary>
+        /// Рисует круг на графическом объекте с заданным цветом.
+        /// </summary>
+        /// <param name="g">Графический объект, на котором будет отображаться круг.</param>
+        /// <param name="circle">Круг, который нужно нарисовать.</param>
+        /// <param name="brush">Кисть, которой будет заполнен круг.</param>
         private static void DrawCircle(Graphics g, Circle circle, SolidBrush brush)
         {
             int x1 = Convert.ToInt32(circle.GetCenter().X);
@@ -47,7 +64,12 @@ namespace FiguresClassLibrary
 
             g.FillEllipse(brush, x1, y1, 2 * r, 2 * r);
         }
-
+        /// <summary>
+        /// Рисует квадрат на графическом объекте с заданным цветом.
+        /// </summary>
+        /// <param name="g">Графический объект, на котором будет отображаться квадрат.</param>
+        /// <param name="square">Квадрат, который нужно нарисовать.</param>
+        /// <param name="brush">Кисть, которой будет заполнен квадрат.</param>
         private static void DrawSquare(Graphics g, Square square, SolidBrush brush)
         {
             int x1 = Convert.ToInt32(square.pnts[0].X);
@@ -57,7 +79,12 @@ namespace FiguresClassLibrary
 
             g.FillRectangle(brush, x1, y1, x2 - x1, y2 - y1);
         }
-
+        /// <summary>
+        /// Рисует прямоугольник на графическом объекте с заданным цветом.
+        /// </summary>
+        /// <param name="g">Графический объект, на котором будет отображаться прямоугольник.</param>
+        /// <param name="rectangle">Прямоугольник, который нужно нарисовать.</param>
+        /// <param name="brush">Кисть, которой будет заполнен прямоугольник.</param>
         private static void DrawRectangle(Graphics g, Rectangle rectangle, SolidBrush brush)
         {
             int x1 = Convert.ToInt32(rectangle.pnts[0].X);
@@ -67,7 +94,12 @@ namespace FiguresClassLibrary
 
             g.FillRectangle(brush, x1, y1, x2 - x1, y2 - y1);
         }
-
+        /// <summary>
+        /// Рисует треугольник на графическом объекте с заданным цветом.
+        /// </summary>
+        /// <param name="g">Графический объект, на котором будет отображаться треугольник.</param>
+        /// <param name="triangle">Треугольник, который нужно нарисовать.</param>
+        /// <param name="brush">Кисть, которой будет заполнен треугольник.</param>
         private static void DrawTriangle(Graphics g, Triangle triangle, SolidBrush brush)
         {
             PointF point0 = new PointF(Convert.ToInt32(triangle.pnts[0].X), Convert.ToInt32(triangle.pnts[0].Y));

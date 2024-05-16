@@ -5,6 +5,9 @@ using System.Drawing;
 
 namespace FiguresClassLibrary
 {
+    /// <summary>
+    /// Класс, представляющий список фигур.
+    /// </summary>
     public class FiguresList
     {
         private readonly Random rnd = new Random();
@@ -13,8 +16,14 @@ namespace FiguresClassLibrary
         private readonly SquareFactory squareFactory;
         private readonly TriangleFactory triangleFactory;
 
-        public List<Figure> Figures { get; private set; } //список фигур
+        /// <summary>
+        /// Список фигур.
+        /// </summary>
+        public List<Figure> Figures { get; private set; }
 
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
         public FiguresList()
         {
             Figures = new List<Figure>();
@@ -24,6 +33,10 @@ namespace FiguresClassLibrary
             triangleFactory = new TriangleFactory();
         }
 
+        /// <summary>
+        /// Конструктор с параметром.
+        /// </summary>
+        /// <param name="figures">Список фигур.</param>
         public FiguresList(List<Figure> figures)
         {
             this.Figures = figures;
@@ -33,17 +46,29 @@ namespace FiguresClassLibrary
             triangleFactory = new TriangleFactory();
         }
 
+        /// <summary>
+        /// Добавляет фигуру в список.
+        /// </summary>
+        /// <param name="figure">Фигура для добавления.</param>
         public void AddFigure(Figure figure)
         {
             Figures.Add(figure);
         }
 
+        /// <summary>
+        /// Удаляет фигуру из списка.
+        /// </summary>
+        /// <param name="figure">Фигура для удаления.</param>
         public void RemoveFigure(Figure figure)
         {
             Figures.Remove(figure);
         }
 
-        public void RemoveFigure(Queue<Figure> rFigures) // Удаление  фигуры из списка
+        /// <summary>
+        /// Удаляет фигуры из списка, указанные в очереди.
+        /// </summary>
+        /// <param name="rFigures">Очередь фигур для удаления.</param>
+        public void RemoveFigure(Queue<Figure> rFigures)
         {
             while (rFigures.Count > 0)
             {
@@ -51,7 +76,10 @@ namespace FiguresClassLibrary
                 RemoveFigure(f);
             }
         }
-       
+
+        /// <summary>
+        /// Уменьшает время жизни всех фигур в списке на единицу.
+        /// </summary>
         public void DecTTL()
         {
             foreach (Figure figure in Figures)
@@ -60,6 +88,11 @@ namespace FiguresClassLibrary
             }
         }
 
+        /// <summary>
+        /// Ищет фигуру в списке по указанным координатам.
+        /// </summary>
+        /// <param name="pnt">Координаты точки для поиска фигуры.</param>
+        /// <returns>Найденная фигура или null, если фигура не найдена.</returns>
         public Figure FindFigure(Pnt pnt)
         {
             Figure f = null;
@@ -77,7 +110,11 @@ namespace FiguresClassLibrary
             return f;
         }
 
-        public Queue<Figure> GetNotAliveFigures() // Список мёртвых фигур
+        /// <summary>
+        /// Возвращает очередь с мертвыми фигурами из списка.
+        /// </summary>
+        /// <returns>Очередь мертвых фигур.</returns>
+        public Queue<Figure> GetNotAliveFigures()
         {
             Queue<Figure> dFigures = new Queue<Figure>();
 
@@ -89,13 +126,24 @@ namespace FiguresClassLibrary
             return dFigures;
         }
 
-        // Функция для расчета площади треугольника
+
+        /// <summary>
+        /// Функция для расчета площади треугольника.
+        /// </summary>
+        /// <param name="points">Массив точек, представляющих вершины треугольника.</param>
+        /// <returns>Площадь треугольника.</returns>
         double CalculateTriangleArea(Pnt[] points)
         {
             double area = 0.5 * Math.Abs((points[1].X - points[0].X) * (points[2].Y - points[0].Y) - (points[2].X - points[0].X) * (points[1].Y - points[0].Y));
             return area;
         }
 
+        /// <summary>
+        /// Генерирует случайную фигуру на заданной области.
+        /// </summary>
+        /// <param name="width">Ширина области.</param>
+        /// <param name="height">Высота области.</param>
+        /// <returns>Сгенерированная фигура.</returns>
         public Figure GetRndFigure(int width, int height)
         {
             Figure figure = null;
@@ -163,7 +211,7 @@ namespace FiguresClassLibrary
             // Декорирование фигуры, если isDecorated равно true
             if (isDecorated)
             {
-                figure = new FigureDecorator(figure);               
+                figure = new FigureDecorator(figure);
             }
 
             return figure;

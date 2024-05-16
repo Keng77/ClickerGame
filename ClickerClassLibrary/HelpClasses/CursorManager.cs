@@ -6,6 +6,9 @@ using FiguresClassLibrary;
 
 namespace Clicker
 {
+    /// <summary>
+    /// Управляет позициями и движением двух курсоров, представленных элементами управления PictureBox.
+    /// </summary>
     public class CursorManager
     {
         private const int cursorSpeed = 12;
@@ -31,14 +34,45 @@ namespace Clicker
             KeyPreview = true;
         }
 
+        /// <summary>
+        /// Возвращает или задает значение, указывающее, должны ли события KeyPress быть предварительно обработаны формой, или переданы элементу управления, находящемуся в фокусе.
+        /// </summary>
         public bool KeyPreview { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает скорость перемещения курсора 1 по оси Y.
+        /// </summary>
         public int Cursor1SpeedY { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает скорость перемещения курсора 1 по оси X.
+        /// </summary>
         public int Cursor1SpeedX { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает позицию курсора 1.
+        /// </summary>
         public Point Cursor1Position { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает скорость перемещения курсора 2 по оси X.
+        /// </summary>
         public int Cursor2SpeedX { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает скорость перемещения курсора 2 по оси Y.
+        /// </summary>
         public int Cursor2SpeedY { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает позицию курсора 2.
+        /// </summary>
         public Point Cursor2Position { get; set; }
 
+        /// <summary>
+        /// Обрабатывает нажатие клавиши.
+        /// </summary>
+        /// <param name="e">Аргументы события KeyEventArgs, содержащие информацию о нажатой клавише.</param>
         public void HandleKeyDown(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W)
@@ -79,6 +113,10 @@ namespace Clicker
             cursor2Position = pictureBox2.Location;
         }
 
+        /// <summary>
+        /// Обрабатывает отпускание клавиши.
+        /// </summary>
+        /// <param name="e">Аргументы события KeyEventArgs, содержащие информацию об отпущенной клавише.</param>
         public void HandleKeyUp(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W || e.KeyCode == Keys.S)
@@ -100,6 +138,9 @@ namespace Clicker
             }
         }
 
+        /// <summary>
+        /// Обновляет позиции курсоров.
+        /// </summary>
         public void UpdateCursorsPositions()
         {
             cursor1Position.X += cursor1SpeedX;
